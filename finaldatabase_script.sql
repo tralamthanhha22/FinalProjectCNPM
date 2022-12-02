@@ -341,4 +341,25 @@ select * from ORDER_DETAIL;
 
 
 
+/*==============================================================*/
+/* Part :      Edit table Product	                            */
+/* Created on:     12/02/2022 7:39:49 PM						*/
+/*==============================================================*/
 
+/*==============================================================*/
+/* Table: PRODUCT                                               */
+/*==============================================================*/
+alter table PRODUCT add PROIMAGE VARCHAR(50);
+
+UPDATE PRODUCT SET PROIMAGE = 'P001_vien_sui_optimax.jpg' where PRODUCTID = 'P0001';
+UPDATE PRODUCT SET PROIMAGE = 'P002_liverwell_navi.png' where PRODUCTID = 'P0002';
+UPDATE PRODUCT SET PROIMAGE = 'P003_thanh_nhiet_plus_kingphar.jpg' where PRODUCTID = 'P0003';
+UPDATE PRODUCT SET PROIMAGE = 'P004_active_legs.jpg' where PRODUCTID = 'P0004';
+UPDATE PRODUCT SET PROIMAGE = 'P005_vien_uong_omexxel.jpg' where PRODUCTID = 'P0005';
+UPDATE PRODUCT SET PROIMAGE = 'P006_yen_sao_green_bird.jpg' where PRODUCTID = 'P0006';
+UPDATE PRODUCT SET PROIMAGE = 'P007_com_coloesmaxq10.jpg' where PRODUCTID = 'P0007';
+UPDATE PRODUCT SET PROIMAGE = 'P008_colagen_beuty.jpg' where PRODUCTID = 'P0008';
+UPDATE PRODUCT SET PROIMAGE = 'P009_vien_nhau_thai_cuu.png' where PRODUCTID = 'P0009';
+UPDATE PRODUCT SET PROIMAGE = 'P010_sui_immune.jpg' where PRODUCTID = 'P0010';
+
+SELECT * FROM PRODUCT;
