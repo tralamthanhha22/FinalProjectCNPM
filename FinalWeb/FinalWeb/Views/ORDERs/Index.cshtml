@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FinalWeb.Models.ORDER>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AGENTID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DELIVERYNOTE_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDERDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDERSTATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAYMENTSTATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAYMENTMETHOD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AGENTID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DELIVERYNOTE_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDERDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDERSTATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAYMENTSTATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAYMENTMETHOD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ORDERID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })
+        </td>
+    </tr>
+}
+
+</table>

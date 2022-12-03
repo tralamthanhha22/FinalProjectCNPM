@@ -1,0 +1,72 @@
+﻿@model FinalWeb.Models.ORDER
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ORDER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DELIVERYNOTE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DELIVERYNOTE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDERDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDERDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDERSTATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDERSTATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYMENTSTATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYMENTSTATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYMENTMETHOD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYMENTMETHOD)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

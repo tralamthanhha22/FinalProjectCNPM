@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SE_FinalProject_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AGENT">
+    <Key>
+      <PropertyRef Name="AGENTID" />
+    </Key>
+    <Property Name="AGENTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AGENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AGENTADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AGENTEMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AGENTPHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AGENTPASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DELIVERY">
+    <Key>
+      <PropertyRef Name="DELIVERYNOTE_ID" />
+    </Key>
+    <Property Name="DELIVERYNOTE_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DELIVERYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DELIVERYFEE" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="DELIVERYIMG" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AGENTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DELIVERYNOTE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERDATE" Type="DateTime" Precision="3" />
+    <Property Name="ORDERSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PAYMENTSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PAYMENTMETHOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ORDER_DETAIL">
+    <Key>
+      <PropertyRef Name="ODETAIL_ID" />
+    </Key>
+    <Property Name="ODETAIL_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORDERID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="BUYQUANTITY" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCTID" />
+    </Key>
+    <Property Name="PRODUCTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRONAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PROPRICE" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="PROORIGIN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PROQUANTITY" Type="Int32" />
+    <Property Name="PROTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PROBRAND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PRODESCRIPTION" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="USEDATE" Type="DateTime" Precision="0" />
+    <Property Name="HASSOLD" Type="Int32" />
+    <Property Name="PROIMG" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DevConn" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+    <EntitySet Name="DELIVERY" EntityType="Self.DELIVERY" />
+    <EntitySet Name="ORDER" EntityType="Self.ORDER" />
+    <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>   
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/startstop-slider.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header" style="margin-top:70px">
+            
+        </div>
+    </div>
+        <div class="main">
+            <div class="content">
+                <div class="section group">
+                    @foreach (var item in ViewBag.Products)
+                    {
+
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="/PRODUCTs/Details/@item.PRODUCTID"><img src="~/Uploads/products/@item.PROIMG" alt="" /></a>
+                            <h2>@item.PRONAME</h2>
+                            <h8><a href="/Home/AddtoCart/@item.PRODUCTID">Details</a></h8>
+                            <div class="price-details">
+                                <div class="price-number">
+                                    <p><span>@item.PROPRICE đ</span></p>
+                                </div>
+                                @*<h9><input type="number" min="1" max="100" name="qty" value="1" /></h9>
+                                <input class="btn btn-warning" value="Add to Cart" type="submit" />*@
+                            </div>
+                            </div>
+                    }
+                </div>
+                </div>
+                </div>
+</body>

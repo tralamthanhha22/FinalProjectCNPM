@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SE_FinalProject_DBModelStoreContainer" CdmEntityContainer="DevConn">
+    <EntitySetMapping Name="AGENT">
+      <EntityTypeMapping TypeName="SE_FinalProject_DBModel.AGENT">
+        <MappingFragment StoreEntitySet="AGENT">
+          <ScalarProperty Name="AGENTID" ColumnName="AGENTID" />
+          <ScalarProperty Name="AGENTNAME" ColumnName="AGENTNAME" />
+          <ScalarProperty Name="AGENTADDRESS" ColumnName="AGENTADDRESS" />
+          <ScalarProperty Name="AGENTEMAIL" ColumnName="AGENTEMAIL" />
+          <ScalarProperty Name="AGENTPHONE" ColumnName="AGENTPHONE" />
+          <ScalarProperty Name="AGENTPASSWORD" ColumnName="AGENTPASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DELIVERY">
+      <EntityTypeMapping TypeName="SE_FinalProject_DBModel.DELIVERY">
+        <MappingFragment StoreEntitySet="DELIVERY">
+          <ScalarProperty Name="DELIVERYNOTE_ID" ColumnName="DELIVERYNOTE_ID" />
+          <ScalarProperty Name="DELIVERYNAME" ColumnName="DELIVERYNAME" />
+          <ScalarProperty Name="DELIVERYFEE" ColumnName="DELIVERYFEE" />
+          <ScalarProperty Name="DELIVERYIMG" ColumnName="DELIVERYIMG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER">
+      <EntityTypeMapping TypeName="SE_FinalProject_DBModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDER">
+          <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+          <ScalarProperty Name="AGENTID" ColumnName="AGENTID" />
+          <ScalarProperty Name="DELIVERYNOTE_ID" ColumnName="DELIVERYNOTE_ID" />
+          <ScalarProperty Name="ORDERDATE" ColumnName="ORDERDATE" />
+          <ScalarProperty Name="ORDERSTATUS" ColumnName="ORDERSTATUS" />
+          <ScalarProperty Name="PAYMENTSTATUS" ColumnName="PAYMENTSTATUS" />
+          <ScalarProperty Name="PAYMENTMETHOD" ColumnName="PAYMENTMETHOD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_DETAIL">
+      <EntityTypeMapping TypeName="SE_FinalProject_DBModel.ORDER_DETAIL">
+        <MappingFragment StoreEntitySet="ORDER_DETAIL">
+          <ScalarProperty Name="ODETAIL_ID" ColumnName="ODETAIL_ID" />
+          <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="BUYQUANTITY" ColumnName="BUYQUANTITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCT">
+      <EntityTypeMapping TypeName="SE_FinalProject_DBModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="PRONAME" ColumnName="PRONAME" />
+          <ScalarProperty Name="PROPRICE" ColumnName="PROPRICE" />
+          <ScalarProperty Name="PROORIGIN" ColumnName="PROORIGIN" />
+          <ScalarProperty Name="PROQUANTITY" ColumnName="PROQUANTITY" />
+          <ScalarProperty Name="PROTYPE" ColumnName="PROTYPE" />
+          <ScalarProperty Name="PROBRAND" ColumnName="PROBRAND" />
+          <ScalarProperty Name="PRODESCRIPTION" ColumnName="PRODESCRIPTION" />
+          <ScalarProperty Name="USEDATE" ColumnName="USEDATE" />
+          <ScalarProperty Name="HASSOLD" ColumnName="HASSOLD" />
+          <ScalarProperty Name="PROIMG" ColumnName="PROIMG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

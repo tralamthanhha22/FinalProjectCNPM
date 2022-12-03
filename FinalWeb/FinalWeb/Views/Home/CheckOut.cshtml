@@ -1,0 +1,77 @@
+﻿<div class="row">
+    @if (Session["total"]==null)
+    {
+        <h1>cart is empty</h1>
+        <a href="@Url.Action("Index","Home")">go back</a>
+    }
+
+    else
+    {
+        <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+            <div class="cart-list">
+                <table class="table">
+                    <thead class="thead-primary">
+                        <tr class="text-center">
+                            <th></th>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Session["cart"] as List<FinalWeb.Models.Cart>)
+                        {
+                            <tr class="text-center">
+                                <td class="product-remove">
+                                    <a href="@Url.Action("remove", "Home", new { id = item.ProID })">
+                                        x
+                                    </a>
+                                </td>
+                                <td class="product-name">
+                                    <h3>@item.ProID</h3>
+                                </td>
+
+                                <td class="product-name">
+                                    <h3>@item.Proname</h3>
+
+                                </td>
+
+                                <td class="price">@item.Proprice</td>
+                                <td><img src="~/Uploads/products/@item.ProImg" style="max-width:100px" /></td>
+
+                                <td class="quantity">
+                                    @item.qty
+                                </td>
+
+                                <td class="total">@item.bill đ</td>
+                            </tr><!-- END TR-->
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    <div>
+        <h1 style="color:red">TOTAL: @Session["total"] đ</h1>
+    </div>
+    @*@if (Session["Fullname"] == null)
+    {
+        <a href="@Url.Action("Login","Home")" class="btn btn-primary py-3 px-4">Login</a>
+        <a href="@Url.Action("Create","AGENTs")" class="btn btn-primary py-3 px-4">Register</a>
+    }
+    else
+    {
+        using (Html.BeginForm())
+        {
+
+            <span>Contact :</span> <input type="text" name="contact" class="form-control col-lg-6" />
+            <span>Address :</span><input name="address" class="form-control col-lg-6" value="@Session["AGENTADDRESS"]">
+            
+            <input type="submit" value="Checkout" class="btn btn-primary py-3 px-4" />
+        }
+    }*@
+</div>

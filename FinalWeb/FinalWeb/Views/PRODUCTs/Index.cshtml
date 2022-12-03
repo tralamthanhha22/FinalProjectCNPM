@@ -1,0 +1,98 @@
+﻿@model IEnumerable<FinalWeb.Models.PRODUCT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PRONAME)*@
+            Tên sản phẩm
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROPRICE)*@
+            Giá
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROORIGIN)*@
+            Xuất xứ
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROQUANTITY)*@
+            Số lượng
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROTYPE)*@
+            Loại
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROBRAND)*@
+            Nhãn hiệu
+        </th>
+        <th>
+            @*Html.DisplayNameFor(model => model.PRODESCRIPTION)*@
+            Mô tả sản phẩm
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.USEDATE)*@
+            Ngày sử dụng
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.HASSOLD)*@
+            Đã bán
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PROIMG)*@
+            Ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRONAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROPRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROORIGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROQUANTITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROTYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROBRAND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USEDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HASSOLD)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.PROIMG)*@
+            <img src="~/Uploads/products/@item.PROIMG" style="max-width:150px"/>
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.PRODUCTID }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.PRODUCTID }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.PRODUCTID })*@
+        </td>
+    </tr>
+}
+
+</table>

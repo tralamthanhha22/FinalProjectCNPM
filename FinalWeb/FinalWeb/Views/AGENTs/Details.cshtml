@@ -1,0 +1,58 @@
+﻿@model FinalWeb.Models.AGENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AGENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTEMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTEMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTPHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTPHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENTPASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGENTPASSWORD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AGENTID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
