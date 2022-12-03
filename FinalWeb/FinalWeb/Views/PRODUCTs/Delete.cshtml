@@ -1,0 +1,104 @@
+﻿@model FinalWeb.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PRODUCT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRONAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRONAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROPRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROPRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROORIGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROORIGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROQUANTITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROQUANTITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROTYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROBRAND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROBRAND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USEDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USEDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HASSOLD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HASSOLD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROIMG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROIMG)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

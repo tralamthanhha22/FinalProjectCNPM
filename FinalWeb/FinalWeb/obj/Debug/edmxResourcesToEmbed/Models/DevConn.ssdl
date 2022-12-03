@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SE_FinalProject_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGENT">
+    <Key>
+      <PropertyRef Name="AGENTID" />
+    </Key>
+    <Property Name="AGENTID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="AGENTNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="AGENTADDRESS" Type="nvarchar" MaxLength="100" />
+    <Property Name="AGENTEMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="AGENTPHONE" Type="varchar" MaxLength="10" />
+    <Property Name="AGENTPASSWORD" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="DELIVERY">
+    <Key>
+      <PropertyRef Name="DELIVERYNOTE_ID" />
+    </Key>
+    <Property Name="DELIVERYNOTE_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DELIVERYNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="DELIVERYFEE" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="DELIVERYIMG" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="AGENTID" Type="varchar" MaxLength="5" />
+    <Property Name="DELIVERYNOTE_ID" Type="varchar" MaxLength="50" />
+    <Property Name="ORDERDATE" Type="datetime" />
+    <Property Name="ORDERSTATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAYMENTSTATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAYMENTMETHOD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ORDER_DETAIL">
+    <Key>
+      <PropertyRef Name="ODETAIL_ID" />
+    </Key>
+    <Property Name="ODETAIL_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ORDERID" Type="varchar" MaxLength="5" />
+    <Property Name="PRODUCTID" Type="varchar" MaxLength="5" />
+    <Property Name="BUYQUANTITY" Type="int" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCTID" />
+    </Key>
+    <Property Name="PRODUCTID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="PRONAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROPRICE" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="PROORIGIN" Type="nvarchar" MaxLength="10" />
+    <Property Name="PROQUANTITY" Type="int" />
+    <Property Name="PROTYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="PROBRAND" Type="nvarchar" MaxLength="20" />
+    <Property Name="PRODESCRIPTION" Type="nvarchar" MaxLength="400" />
+    <Property Name="USEDATE" Type="date" />
+    <Property Name="HASSOLD" Type="int" />
+    <Property Name="PROIMG" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityContainer Name="SE_FinalProject_DBModelStoreContainer">
+    <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DELIVERY" EntityType="Self.DELIVERY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

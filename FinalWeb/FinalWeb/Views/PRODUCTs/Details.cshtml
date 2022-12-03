@@ -1,0 +1,99 @@
+﻿@model FinalWeb.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRODUCT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRONAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRONAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROPRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROPRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROORIGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROORIGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROQUANTITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROQUANTITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROTYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROBRAND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROBRAND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USEDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USEDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HASSOLD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HASSOLD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROIMG)
+        </dt>
+
+        <dd>
+           <img src="~/Uploads/products/@Model.PROIMG"/>
+            @*(model => model.PROIMG)*@
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.PRODUCTID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

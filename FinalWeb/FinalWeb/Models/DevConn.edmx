@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SE_FinalProject_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="AGENTID" />
+          </Key>
+          <Property Name="AGENTID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="AGENTNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="AGENTADDRESS" Type="nvarchar" MaxLength="100" />
+          <Property Name="AGENTEMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="AGENTPHONE" Type="varchar" MaxLength="10" />
+          <Property Name="AGENTPASSWORD" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DELIVERY">
+          <Key>
+            <PropertyRef Name="DELIVERYNOTE_ID" />
+          </Key>
+          <Property Name="DELIVERYNOTE_ID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DELIVERYNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="DELIVERYFEE" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="DELIVERYIMG" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="AGENTID" Type="varchar" MaxLength="5" />
+          <Property Name="DELIVERYNOTE_ID" Type="varchar" MaxLength="50" />
+          <Property Name="ORDERDATE" Type="datetime" />
+          <Property Name="ORDERSTATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="PAYMENTSTATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="PAYMENTMETHOD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ODETAIL_ID" />
+          </Key>
+          <Property Name="ODETAIL_ID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ORDERID" Type="varchar" MaxLength="5" />
+          <Property Name="PRODUCTID" Type="varchar" MaxLength="5" />
+          <Property Name="BUYQUANTITY" Type="int" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="PRODUCTID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="PRONAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PROPRICE" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="PROORIGIN" Type="nvarchar" MaxLength="10" />
+          <Property Name="PROQUANTITY" Type="int" />
+          <Property Name="PROTYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="PROBRAND" Type="nvarchar" MaxLength="20" />
+          <Property Name="PRODESCRIPTION" Type="nvarchar" MaxLength="400" />
+          <Property Name="USEDATE" Type="date" />
+          <Property Name="HASSOLD" Type="int" />
+          <Property Name="PROIMG" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityContainer Name="SE_FinalProject_DBModelStoreContainer">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DELIVERY" EntityType="Self.DELIVERY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SE_FinalProject_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="AGENTID" />
+          </Key>
+          <Property Name="AGENTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AGENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AGENTADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AGENTEMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGENTPHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AGENTPASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DELIVERY">
+          <Key>
+            <PropertyRef Name="DELIVERYNOTE_ID" />
+          </Key>
+          <Property Name="DELIVERYNOTE_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DELIVERYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DELIVERYFEE" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="DELIVERYIMG" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AGENTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DELIVERYNOTE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDERDATE" Type="DateTime" Precision="3" />
+          <Property Name="ORDERSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PAYMENTSTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PAYMENTMETHOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ODETAIL_ID" />
+          </Key>
+          <Property Name="ODETAIL_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ORDERID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BUYQUANTITY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="PRODUCTID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRONAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PROPRICE" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="PROORIGIN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PROQUANTITY" Type="Int32" />
+          <Property Name="PROTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PROBRAND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PRODESCRIPTION" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="USEDATE" Type="DateTime" Precision="0" />
+          <Property Name="HASSOLD" Type="Int32" />
+          <Property Name="PROIMG" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DevConn" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+          <EntitySet Name="DELIVERY" EntityType="Self.DELIVERY" />
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SE_FinalProject_DBModelStoreContainer" CdmEntityContainer="DevConn">
+          <EntitySetMapping Name="AGENT">
+            <EntityTypeMapping TypeName="SE_FinalProject_DBModel.AGENT">
+              <MappingFragment StoreEntitySet="AGENT">
+                <ScalarProperty Name="AGENTID" ColumnName="AGENTID" />
+                <ScalarProperty Name="AGENTNAME" ColumnName="AGENTNAME" />
+                <ScalarProperty Name="AGENTADDRESS" ColumnName="AGENTADDRESS" />
+                <ScalarProperty Name="AGENTEMAIL" ColumnName="AGENTEMAIL" />
+                <ScalarProperty Name="AGENTPHONE" ColumnName="AGENTPHONE" />
+                <ScalarProperty Name="AGENTPASSWORD" ColumnName="AGENTPASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DELIVERY">
+            <EntityTypeMapping TypeName="SE_FinalProject_DBModel.DELIVERY">
+              <MappingFragment StoreEntitySet="DELIVERY">
+                <ScalarProperty Name="DELIVERYNOTE_ID" ColumnName="DELIVERYNOTE_ID" />
+                <ScalarProperty Name="DELIVERYNAME" ColumnName="DELIVERYNAME" />
+                <ScalarProperty Name="DELIVERYFEE" ColumnName="DELIVERYFEE" />
+                <ScalarProperty Name="DELIVERYIMG" ColumnName="DELIVERYIMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER">
+            <EntityTypeMapping TypeName="SE_FinalProject_DBModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDER">
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+                <ScalarProperty Name="AGENTID" ColumnName="AGENTID" />
+                <ScalarProperty Name="DELIVERYNOTE_ID" ColumnName="DELIVERYNOTE_ID" />
+                <ScalarProperty Name="ORDERDATE" ColumnName="ORDERDATE" />
+                <ScalarProperty Name="ORDERSTATUS" ColumnName="ORDERSTATUS" />
+                <ScalarProperty Name="PAYMENTSTATUS" ColumnName="PAYMENTSTATUS" />
+                <ScalarProperty Name="PAYMENTMETHOD" ColumnName="PAYMENTMETHOD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_DETAIL">
+            <EntityTypeMapping TypeName="SE_FinalProject_DBModel.ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="ORDER_DETAIL">
+                <ScalarProperty Name="ODETAIL_ID" ColumnName="ODETAIL_ID" />
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="BUYQUANTITY" ColumnName="BUYQUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT">
+            <EntityTypeMapping TypeName="SE_FinalProject_DBModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="PRONAME" ColumnName="PRONAME" />
+                <ScalarProperty Name="PROPRICE" ColumnName="PROPRICE" />
+                <ScalarProperty Name="PROORIGIN" ColumnName="PROORIGIN" />
+                <ScalarProperty Name="PROQUANTITY" ColumnName="PROQUANTITY" />
+                <ScalarProperty Name="PROTYPE" ColumnName="PROTYPE" />
+                <ScalarProperty Name="PROBRAND" ColumnName="PROBRAND" />
+                <ScalarProperty Name="PRODESCRIPTION" ColumnName="PRODESCRIPTION" />
+                <ScalarProperty Name="USEDATE" ColumnName="USEDATE" />
+                <ScalarProperty Name="HASSOLD" ColumnName="HASSOLD" />
+                <ScalarProperty Name="PROIMG" ColumnName="PROIMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
