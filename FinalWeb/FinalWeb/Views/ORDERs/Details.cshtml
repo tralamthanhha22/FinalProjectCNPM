@@ -60,7 +60,26 @@
 
     </dl>
 </div>
+<div>
+    @foreach(var data in ViewBag.OrderDetail)
+    {
+        if(data.ORDERID==ViewBag.Id)
+        {
+            <dl class="dl-horizontal">
+                <dd>ORDER DETAIL ID: </dd>
+                <dt>@data.ODETAIL_ID</dt>
+                <dd>ORDER ID:</dd>
+                <dt>@data.ORDERID</dt>
+                <dt>Product:</dt>
+                <dd>@data.PRODUCTID </dd>
+                <dt>Quantity:</dt>
+                <dd>@data.BUYQUANTITY</dd>
+            </dl>
+        }
+        
+     }
+</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>

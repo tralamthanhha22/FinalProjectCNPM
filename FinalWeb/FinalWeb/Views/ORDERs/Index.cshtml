@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<FinalWeb.Models.ORDER>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lịch sử đơn hàng";
 }
 
 <h2>Index</h2>
@@ -12,52 +12,69 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AGENTID)
+            ORDER ID:
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DELIVERYNOTE_ID)
+           AGENT ID:
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ORDERDATE)
+            DELIVERY NOTE ID:
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ORDERSTATUS)
+           ORDER DATE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PAYMENTSTATUS)
+            ORDER STATUS
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PAYMENTMETHOD)
+            PAYMENT STATUS
+        </th>
+        <th>
+           PAYMENT METHOD
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AGENTID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DELIVERYNOTE_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ORDERDATE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ORDERSTATUS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAYMENTSTATUS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAYMENTMETHOD)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ORDERID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })
-        </td>
-    </tr>
+@foreach (var item in ViewBag.Order) {
+    if (@item.AGENTID.Equals(@Session["AGENTID"]))
+    {
+        if (@item.PAYMENTMETHOD=="Chuyển khoản")
+        { 
+            <tr>
+                Stk: 0123456789<br />
+                Sđt Momo: 0123456789<br />
+                Nội dung chuyển khoản: <br />[Tên]+"_"+[ORDERID]+"_"+[ORDER DETAIL ID]
+                <td>
+                    @item.ORDERID
+                </td>
+                <td>
+                    @item.AGENTID
+                </td>
+                <td>
+                    @item.DELIVERYNOTE_ID
+                </td>
+                <td>
+                    @item.ORDERDATE
+                </td>
+                <td>
+                    @item.ORDERSTATUS
+                </td>
+                <td>
+                    @item.PAYMENTSTATUS
+                </td>
+                <td>
+                    @item.PAYMENTMETHOD
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.ORDERID })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
+                </td>
+            </tr>
+        }    
+        
+    }    
+    
 }
 
 </table>

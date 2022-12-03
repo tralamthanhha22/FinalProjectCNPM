@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,7 +18,9 @@ namespace FinalWeb.Controllers
         // GET: ORDERs
         public ActionResult Index()
         {
-            return View(db.ORDER.ToList());
+            ViewBag.Order = db.ORDER.ToList();
+            //return View(db.ORDER.Where(order => order.AGENTID.Equals(Session["AGENTID"])).ToList());
+            return View();
         }
 
         // GET: ORDERs/Details/5
@@ -27,6 +30,8 @@ namespace FinalWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Id = id;
+            ViewBag.OrderDetail = db.ORDER_DETAIL.ToList();
             ORDER oRDER = db.ORDER.Find(id);
             if (oRDER == null)
             {
@@ -38,6 +43,10 @@ namespace FinalWeb.Controllers
         // GET: ORDERs/Create
         public ActionResult Create()
         {
+            if (Session["AGENTID"]==null)
+            {
+                return RedirectToAction("Login","Home");
+            }
             ViewBag.Delivery = db.DELIVERY.ToList();
             ViewBag.OrderDetails=db.ORDER_DETAIL.ToList();
             ViewBag.Products=db.PRODUCT.ToList();
@@ -84,12 +93,28 @@ namespace FinalWeb.Controllers
                     len++;
                     continue;
                 }
-                
+                //foreach(var i in li2)
+                //{
+                //    db.PRODUCT.ToList().ForEach(j =>
+                //    {
+                //        if (j.PRODUCTID.Equals(i.ProID)) {
+                //            j.HASSOLD += i.qty;
+                //            j.PROQUANTITY-= i.qty;
+                //        }
+                //    });
+                //}    
+                //foreach(var i in li2)
+                //{
+                //    var data=db.PRODUCT.Find(i.ProID);
+                //    data.HASSOLD += i.qty;
+                //    data.PROQUANTITY-= i.qty;
+                //}    
                 db.ORDER.Add(oRDER);
                 db.SaveChanges();
                 li2.Clear();
                 Session["item_count"] = 0;
                 Session["total"] = 0;
+                
                 return RedirectToAction("Index");
             }
 

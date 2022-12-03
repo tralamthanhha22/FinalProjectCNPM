@@ -52,7 +52,8 @@ namespace FinalWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var data = db.AGENT.Where(agent => agent.AGENTPASSWORD.Equals(aGENT.AGENTPASSWORD) && agent.AGENTEMAIL.Equals(aGENT.AGENTEMAIL)).ToList();
+                var data = db.AGENT.Where(agent => agent.AGENTPASSWORD.Equals(aGENT.AGENTPASSWORD) 
+                && agent.AGENTEMAIL.Equals(aGENT.AGENTEMAIL)).ToList();
                 if (data.Count() > 0)
                 {
                     Session["Fullname"] = data.FirstOrDefault().AGENTNAME;
