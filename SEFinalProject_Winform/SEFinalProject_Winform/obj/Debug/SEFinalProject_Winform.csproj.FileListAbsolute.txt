@@ -21,3 +21,16 @@ D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\
 D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.exe
 D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.pdb
 D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmNhapHang.resources
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\bin\Debug\SEFinalProject_Winform.exe.config
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\bin\Debug\SEFinalProject_Winform.exe
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\bin\Debug\SEFinalProject_Winform.pdb
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.csproj.SuggestedBindingRedirects.cache
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmLoginAccountant.resources
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmMainForm.resources
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmNhapHang.resources
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.Properties.Resources.resources
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.exe
+C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.pdb

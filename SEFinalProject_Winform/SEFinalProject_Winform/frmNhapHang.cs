@@ -90,8 +90,8 @@ namespace SEFinalProject_Winform
                 tbProUseDate.Text = row[8].Value.ToString();
                 proQuantityNow = int.Parse(row[4].Value.ToString());
 
-                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
-
+                //String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -154,7 +154,9 @@ namespace SEFinalProject_Winform
             String proDes = rtbProDes.Text;
             float proPrice = 0;
             int proQuantity = 0;
-            String useDate = tbProUseDate.Text.ToString();
+            DateTime useDate = tbProUseDate.Value;
+            String []ele = proImage.Split('\\');
+            MessageBox.Show(ele[ele.Length - 1]);
             try
             {
                 proQuantity = int.Parse(numberProductQuantity.Value.ToString());
@@ -167,7 +169,8 @@ namespace SEFinalProject_Winform
 
             //insert into PRODUCT values ('P0000',N'Tên sản phẩm', 0, N'Xuất xứ', 0, N'Type', N'Brand', N'Des', '2024-12-23',0);
 
-            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMAGE)VALUES (@ProID, @ProName, @ProPrice, @ProOrigin, @ProQuantity, @ProType, @ProBrand, @ProDes, @UseDate, @HasSold, @ProImage)";
+            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMG)" +
+                "VALUES (@ProID, @ProName, @ProPrice, @ProOrigin, @ProQuantity, @ProType, @ProBrand, @ProDes, @UseDate, @HasSold, @ProImage)";
             SqlConnection conn = new SqlConnection(strConn);
            
             conn.Open();
@@ -183,8 +186,8 @@ namespace SEFinalProject_Winform
             cmd.Parameters.Add(new SqlParameter("@ProDes", proDes));
             cmd.Parameters.Add(new SqlParameter("@UseDate", useDate));
             cmd.Parameters.Add(new SqlParameter("@HasSold", 1));
-            cmd.Parameters.Add(new SqlParameter("@ProImage", proImage));
-
+            cmd.Parameters.Add(new SqlParameter("@ProImage", ele[ele.Length - 1]));
+            //cmd.Parameters.Add(new SqlParameter("@ProImage", proImage));
             try
             {
 
