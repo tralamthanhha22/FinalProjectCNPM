@@ -79,7 +79,8 @@ namespace SEFinalProject_Winform
             tbProType.Text = "";
             tbProUseDate.Text = "";
             rtbProDes.Text = "";
-            picturePro.ImageLocation = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\icon_noimage.png";
+            //picturePro.ImageLocation = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\icon_noimage.png";
+            picturePro.ImageLocation = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\icon_noimage.png";
 
 
         }
@@ -101,18 +102,14 @@ namespace SEFinalProject_Winform
                 proImage = row[10].Value.ToString();
                 
 
-                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + proImage;
-                //String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                //String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + proImage;
+                String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
-
                 btnUpdate.Enabled = true;
                 btnChooseImage.Enabled = true;
-
-                
 
             }
         }
@@ -144,7 +141,8 @@ namespace SEFinalProject_Winform
 
 
         
-            String sSQL = "UPDATE PRODUCT SET PRONAME = @ProName, PROPRICE = @ProPrice, PROORIGIN = @ProOrigin, PROQUANTITY = @ProQuantity, PROTYPE = @ProType, PROBRAND = @ProBrand, PRODESCRIPTION = @ProDes, USEDATE = @UseDate, PROIMAGE = @ProImage WHERE PRODUCTID = @ProID";
+            String sSQL = "UPDATE PRODUCT SET PRONAME = @ProName, PROPRICE = @ProPrice, PROORIGIN = @ProOrigin, PROQUANTITY = @ProQuantity, PROTYPE = @ProType, " +
+                "PROBRAND = @ProBrand, PRODESCRIPTION = @ProDes, USEDATE = @UseDate, PROIMG = @ProImage WHERE PRODUCTID = @ProID";
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();

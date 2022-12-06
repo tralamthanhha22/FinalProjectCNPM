@@ -91,8 +91,8 @@ namespace SEFinalProject_Winform
                 tbProUseDate.Text = row[8].Value.ToString();
                 proQuantityNow = int.Parse(row[4].Value.ToString());
 
-                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
-                //String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+               // String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -147,6 +147,7 @@ namespace SEFinalProject_Winform
 
         private void addNewProduct(object sender, EventArgs e)
         {
+            String location = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\FinalWeb\\FinalWeb\\Uploads\\products";
             String proID = tbProductID.Text.ToString();
             String proName = tbProductName.Text.ToString();
             String proOrigin = tbProOrigin.Text.ToString();
@@ -156,7 +157,10 @@ namespace SEFinalProject_Winform
             float proPrice = 0;
             int proQuantity = 0;
             DateTime useDate = tbProUseDate.Value;
-            String []ele = proImage.Split('\\');
+            Image a = picturePro.Image;
+            String[] ele = proImage.Split('\\');
+            a.Save(Path.Combine(location, ele[ele.Length - 1]));
+            MessageBox.Show(Path.Combine(location, ele[ele.Length - 1]));
             //MessageBox.Show(ele[ele.Length - 1]);
             try
             {
@@ -170,7 +174,7 @@ namespace SEFinalProject_Winform
 
             //insert into PRODUCT values ('P0000',N'Tên sản phẩm', 0, N'Xuất xứ', 0, N'Type', N'Brand', N'Des', '2024-12-23',0);
 
-            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMAGE)" +
+            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMG)" +
                 "VALUES (@ProID, @ProName, @ProPrice, @ProOrigin, @ProQuantity, @ProType, @ProBrand, @ProDes, @UseDate, @HasSold, @ProImage)";
             SqlConnection conn = new SqlConnection(strConn);
            
