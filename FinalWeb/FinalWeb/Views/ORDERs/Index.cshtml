@@ -15,13 +15,13 @@
             ORDER ID:
         </th>
         <th>
-           AGENT ID:
+            AGENT ID:
         </th>
         <th>
             DELIVERY NOTE ID:
         </th>
         <th>
-           ORDER DATE
+            ORDER DATE
         </th>
         <th>
             ORDER STATUS
@@ -30,51 +30,86 @@
             PAYMENT STATUS
         </th>
         <th>
-           PAYMENT METHOD
+            PAYMENT METHOD
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in ViewBag.Order) {
-    if (@item.AGENTID.Equals(@Session["AGENTID"]))
+    @foreach (var item in ViewBag.Order)
     {
-        if (@item.PAYMENTMETHOD=="Chuyển khoản")
-        { 
-            <tr>
-                Stk: 0123456789<br />
-                Sđt Momo: 0123456789<br />
-                Nội dung chuyển khoản: <br />[Tên]+"_"+[ORDERID]+"_"+[ORDER DETAIL ID]
-                <td>
-                    @item.ORDERID
-                </td>
-                <td>
-                    @item.AGENTID
-                </td>
-                <td>
-                    @item.DELIVERYNOTE_ID
-                </td>
-                <td>
-                    @item.ORDERDATE
-                </td>
-                <td>
-                    @item.ORDERSTATUS
-                </td>
-                <td>
-                    @item.PAYMENTSTATUS
-                </td>
-                <td>
-                    @item.PAYMENTMETHOD
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |*@
-                    @Html.ActionLink("Details", "Details", new { id = item.ORDERID })
-                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
-                </td>
-            </tr>
-        }    
-        
-    }    
-    
-}
+        if (@item.AGENTID.Equals(@Session["AGENTID"]))
+        {
+            if (@item.PAYMENTMETHOD == "Chuyển khoản")
+            {
+                <tr>
+                    Stk: 0123456789
+                    <br />
+                    Sđt Momo: 0123456789
+                    <br />
+                    Nội dung chuyển khoản:
+                    <br />[Tên]+"_"+[ORDERID]+"_"+[ORDER DETAIL ID]
+                    <td>
+                        @item.ORDERID
+                    </td>
+                    <td>
+                        @item.AGENTID
+                    </td>
+                    <td>
+                        @item.DELIVERYNOTE_ID
+                    </td>
+                    <td>
+                        @item.ORDERDATE
+                    </td>
+                    <td>
+                        @item.ORDERSTATUS
+                    </td>
+                    <td>
+                        @item.PAYMENTSTATUS
+                    </td>
+                    <td>
+                        @item.PAYMENTMETHOD
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |*@
+                        @Html.ActionLink("Details", "Details", new { id = item.ORDERID })
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @item.ORDERID
+                    </td>
+                    <td>
+                        @item.AGENTID
+                    </td>
+                    <td>
+                        @item.DELIVERYNOTE_ID
+                    </td>
+                    <td>
+                        @item.ORDERDATE
+                    </td>
+                    <td>
+                        @item.ORDERSTATUS
+                    </td>
+                    <td>
+                        @item.PAYMENTSTATUS
+                    </td>
+                    <td>
+                        @item.PAYMENTMETHOD
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |*@
+                        @Html.ActionLink("Details", "Details", new { id = item.ORDERID })
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
+                    </td>
+                </tr>
+            }
+
+        }
+
+    }
 
 </table>

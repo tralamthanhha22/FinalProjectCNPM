@@ -31,6 +31,7 @@
     <Property Name="ORDERSTATUS" Type="nvarchar" MaxLength="50" />
     <Property Name="PAYMENTSTATUS" Type="nvarchar" MaxLength="50" />
     <Property Name="PAYMENTMETHOD" Type="nvarchar" MaxLength="50" />
+    <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="ORDER_DETAIL">
     <Key>

@@ -21,5 +21,6 @@ namespace FinalWeb.Models
         public string ORDERSTATUS { get; set; }
         public string PAYMENTSTATUS { get; set; }
         public string PAYMENTMETHOD { get; set; }
+        public Nullable<decimal> Total { get; set; }
     }
 }

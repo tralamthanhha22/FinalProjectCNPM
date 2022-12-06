@@ -53,6 +53,7 @@ namespace FinalWeb.Controllers
             ViewBag.Count = "O000" + db.ORDER.Count().ToString();
             ViewBag.AGENTID = Session["AGENTID"];
             ViewBag.OrderDetail="OD00"+db.ORDER_DETAIL.Count().ToString();
+            Session["deliveryFee"] = 0;
             return View();
         }
 
@@ -61,7 +62,8 @@ namespace FinalWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include ="ODETAIL_ID,ODERID,PRODUCTID,BUYQUANTITY")]ORDER_DETAIL oRDER_detail,[Bind(Include = "ORDERID,AGENTID,DELIVERYNOTE_ID,ORDERDATE,ORDERSTATUS,PAYMENTSTATUS,PAYMENTMETHOD")] ORDER oRDER)
+        public ActionResult Create([Bind(Include ="ODETAIL_ID,ODERID,PRODUCTID,BUYQUANTITY")]ORDER_DETAIL oRDER_detail,
+            [Bind(Include = "ORDERID,AGENTID,DELIVERYNOTE_ID,ORDERDATE,ORDERSTATUS,PAYMENTSTATUS,PAYMENTMETHOD")] ORDER oRDER)
         {
             if (ModelState.IsValid)
             {
@@ -71,12 +73,19 @@ namespace FinalWeb.Controllers
                 var len = db.ORDER_DETAIL.Count();
                 foreach (var p in li2)
                 {
+                    var deliveryFee = 0;
+                    var delivery =db.DELIVERY.Where(deliver => deliver.DELIVERYNOTE_ID.Equals(oRDER.DELIVERYNOTE_ID));
+                    foreach (var d in delivery)
+                    {
+                        deliveryFee = Convert.ToInt32(d.DELIVERYFEE);
+                    }
+                    Session["total"] = Convert.ToInt32(Session["total"])+deliveryFee;
+                    oRDER.Total = Convert.ToInt32(Session["total"]) + deliveryFee;
                     oRDER_detail.ODETAIL_ID = "OD00" + len;
                     oRDER_detail.ORDERID = "O000" + db.ORDER.Count().ToString();
                     oRDER_detail.PRODUCTID = p.ProID;
                     oRDER_detail.BUYQUANTITY = p.qty;
-       
-                    
+                    Session["deliveryFee"] = deliveryFee;
                     oRDER_DETAILs.Add(new ORDER_DETAIL
                     {
                         ODETAIL_ID= "OD00" + len,

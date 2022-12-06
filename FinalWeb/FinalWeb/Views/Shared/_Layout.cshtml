@@ -47,6 +47,7 @@
                     @Html.ActionLink(@Session["Fullname"].ToString(), "Details/"
                + @Session["AGENTID"].ToString(), "AGENTs")
             </li>
+            <li>@Html.ActionLink("Lịch sử đặt hàng", "Index", "ORDERs")</li>
             <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
             <li>
                 <a href="/Home/CheckOut">
