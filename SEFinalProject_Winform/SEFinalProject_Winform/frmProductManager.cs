@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -171,6 +172,41 @@ namespace SEFinalProject_Winform
             MessageBox.Show("Save successfully!");
             LoadData();
         }
-    
+
+        private void deleteProduct(object sender, EventArgs e)
+        {
+            String proID = tbProductID.Text.ToString();
+            String proName = tbProductName.Text.ToString();
+            String message = "Bạn có chắc muốn xóa sản phẩm " + proName + "?";
+            String title = "Xóa sản phẩm" + proID;
+
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                String sSQL = "DELETE FROM PRODUCT WHERE PRODUCTID = @ProID";
+                SqlConnection conn = new SqlConnection(strConn);
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sSQL, conn);
+                cmd.Parameters.Add(new SqlParameter("@ProID", proID));
+                try
+                {
+
+                    cmd.ExecuteNonQuery();
+                    clearFormData();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error:" + ex.Message);
+                }
+                MessageBox.Show("Delete successfully!");
+                LoadData();
+            }
+            else
+            {
+                //Do somethings
+            }
+        }
     }
 }
