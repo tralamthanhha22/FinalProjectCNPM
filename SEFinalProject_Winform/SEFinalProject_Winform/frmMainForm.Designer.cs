@@ -103,7 +103,7 @@ namespace SEFinalProject_Winform
             this.thốngKêHàngBánChạyToolStripMenuItem,
             this.lượngHàngTồnKhoToolStripMenuItem});
             this.xemThốngKêToolStripMenuItem1.Name = "xemThốngKêToolStripMenuItem1";
-            this.xemThốngKêToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.xemThốngKêToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.xemThốngKêToolStripMenuItem1.Text = "Xem thống kê";
             // 
             // thốngKêĐơnNhậpThángToolStripMenuItem
@@ -123,6 +123,7 @@ namespace SEFinalProject_Winform
             this.lượngHàngTồnKhoToolStripMenuItem.Name = "lượngHàngTồnKhoToolStripMenuItem";
             this.lượngHàngTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.lượngHàngTồnKhoToolStripMenuItem.Text = "Lượng hàng tồn kho";
+            this.lượngHàngTồnKhoToolStripMenuItem.Click += new System.EventHandler(this.lượngHàngTồnKhoToolStripMenuItem_Click);
             // 
             // quảnLýĐơnHàngToolStripMenuItem
             // 

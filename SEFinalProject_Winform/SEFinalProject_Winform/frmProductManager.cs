@@ -5,24 +5,19 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
+using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace SEFinalProject_Winform
 {
-    public partial class frmNhapHang : Form
+    public partial class frmProductManager : Form
     {
         String strConn = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-        
-
         String proImage = "";
-        int proQuantityNow = 0;
-        public frmNhapHang()
+        public frmProductManager()
         {
             InitializeComponent();
         }
@@ -49,9 +44,8 @@ namespace SEFinalProject_Winform
             conn.Close();
         }
 
-        private void btnChooseImage_Clicked(object sender, EventArgs e)
+        private void btnChooseImage_clicked(object sender, EventArgs e)
         {
-            // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
@@ -66,13 +60,26 @@ namespace SEFinalProject_Winform
             }
         }
 
-        private void frmNhapHang_Load(object sender, EventArgs e)
+        private void frmProductManager_Load(object sender, EventArgs e)
         {
             LoadData();
-            btnUpdate.Enabled = false;
-            btnAddNew.Enabled = true;
-            btnChooseImage.Enabled = true;
             this.WindowState = FormWindowState.Maximized;
+        }
+
+
+        private void clearFormData()
+        {
+
+            tbProductID.Text = "";
+            tbProductName.Text = "";
+            tbProBrand.Text = "";
+            tbProOrigin.Text = "";
+            tbProPrice.Text = "";
+            tbProType.Text = "";
+            tbProUseDate.Text = "";
+            rtbProDes.Text = "";
+            picturePro.ImageLocation = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\icon_noimage.png";
+
 
         }
 
@@ -89,63 +96,27 @@ namespace SEFinalProject_Winform
                 tbProBrand.Text = row[6].Value.ToString();
                 rtbProDes.Text = row[7].Value.ToString();
                 tbProUseDate.Text = row[8].Value.ToString();
-                proQuantityNow = int.Parse(row[4].Value.ToString());
+                numberProductQuantity.Value = int.Parse(row[4].Value.ToString());
+                proImage = row[10].Value.ToString();
+                
 
-                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + proImage;
                 //String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
 
 
-                btnAddNew.Enabled = false;
-                btnUpdate.Enabled = true;
-                btnChooseImage.Enabled = false;
 
-                tbProductID.Enabled = false;
-                tbProductName.Enabled = false;
-                tbProBrand.Enabled = false;
-                tbProOrigin.Enabled = false;
-                tbProPrice.Enabled = false;
-                tbProType.Enabled = false;
-                tbProUseDate.Enabled = false;
-                rtbProDes.Enabled = false;
+                btnUpdate.Enabled = true;
+                btnChooseImage.Enabled = true;
+
+                
 
             }
         }
 
-        private void btnClear_clicked(object sender, EventArgs e)
-        {
-            clearFormData();
-        }
-
-        private void clearFormData()
-        {
-            btnAddNew.Enabled = true;
-            btnChooseImage.Enabled = true;
-            btnUpdate.Enabled = false;
-
-            tbProductID.Text = "";
-            tbProductName.Text = "";
-            tbProBrand.Text = "";
-            tbProOrigin.Text = "";
-            tbProPrice.Text = "";
-            tbProType.Text = "";
-            tbProUseDate.Text = "";
-            rtbProDes.Text = "";
-            picturePro.ImageLocation = "";
-
-            tbProductID.Enabled = true;
-            tbProductName.Enabled = true;
-            tbProBrand.Enabled = true;
-            tbProOrigin.Enabled = true;
-            tbProPrice.Enabled = true;
-            tbProType.Enabled = true;
-            tbProUseDate.Enabled = true;
-            rtbProDes.Enabled = true;
-        }
-
-        private void addNewProduct(object sender, EventArgs e)
+        private void btnUpdate_clicked(object sender, EventArgs e)
         {
             String proID = tbProductID.Text.ToString();
             String proName = tbProductName.Text.ToString();
@@ -153,32 +124,32 @@ namespace SEFinalProject_Winform
             String proType = tbProType.Text;
             String proBrand = tbProBrand.Text;
             String proDes = rtbProDes.Text;
+            
             float proPrice = 0;
             int proQuantity = 0;
             DateTime useDate = tbProUseDate.Value;
-            String []ele = proImage.Split('\\');
+            String[] ele = proImage.Split('\\');
             //MessageBox.Show(ele[ele.Length - 1]);
             try
             {
                 proQuantity = int.Parse(numberProductQuantity.Value.ToString());
                 proPrice = float.Parse(tbProPrice.Text.ToString());
                 //useDate = DateTime.ParseExact(tbProUseDate.Text.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.CurrentCulture);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Có lỗi trong quá trình thêm sản phẩm");
             }
 
-            //insert into PRODUCT values ('P0000',N'Tên sản phẩm', 0, N'Xuất xứ', 0, N'Type', N'Brand', N'Des', '2024-12-23',0);
 
-            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMAGE)" +
-                "VALUES (@ProID, @ProName, @ProPrice, @ProOrigin, @ProQuantity, @ProType, @ProBrand, @ProDes, @UseDate, @HasSold, @ProImage)";
+        
+            String sSQL = "UPDATE PRODUCT SET PRONAME = @ProName, PROPRICE = @ProPrice, PROORIGIN = @ProOrigin, PROQUANTITY = @ProQuantity, PROTYPE = @ProType, PROBRAND = @ProBrand, PRODESCRIPTION = @ProDes, USEDATE = @UseDate, PROIMAGE = @ProImage WHERE PRODUCTID = @ProID";
             SqlConnection conn = new SqlConnection(strConn);
-           
+
             conn.Open();
             SqlCommand cmd = new SqlCommand(sSQL, conn);
-
             cmd.Parameters.Add(new SqlParameter("@ProID", proID));
-            cmd.Parameters.Add(new SqlParameter("@ProName",proName));
+            cmd.Parameters.Add(new SqlParameter("@ProName", proName));
             cmd.Parameters.Add(new SqlParameter("@ProPrice", proPrice));
             cmd.Parameters.Add(new SqlParameter("@ProOrigin", proOrigin));
             cmd.Parameters.Add(new SqlParameter("@ProType", proType));
@@ -186,49 +157,7 @@ namespace SEFinalProject_Winform
             cmd.Parameters.Add(new SqlParameter("@ProBrand", proBrand));
             cmd.Parameters.Add(new SqlParameter("@ProDes", proDes));
             cmd.Parameters.Add(new SqlParameter("@UseDate", useDate));
-            cmd.Parameters.Add(new SqlParameter("@HasSold", 1));
             cmd.Parameters.Add(new SqlParameter("@ProImage", ele[ele.Length - 1]));
-            //cmd.Parameters.Add(new SqlParameter("@ProImage", proImage));
-            try
-            {
-
-                cmd.ExecuteNonQuery();
-                clearFormData();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error:" + ex.Message);
-            }
-            MessageBox.Show("Save successfully!");
-            LoadData();
-
-        }
-
-        private void updateProduct(object sender, EventArgs e)
-        {
-            String proID = tbProductID.Text.ToString();
-
-            int proQuantity = 0;
-            try
-            {
-                proQuantity = int.Parse(numberProductQuantity.Value.ToString());
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Có lỗi trong quá trình thêm sản phẩm");
-            }
-
-            proQuantity = proQuantity + proQuantityNow;
-
-            
-            String sSQL = "UPDATE PRODUCT SET PROQUANTITY = @ProQuantity WHERE PRODUCTID = @ProID";
-            SqlConnection conn = new SqlConnection(strConn);
-
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sSQL, conn);
-            cmd.Parameters.Add(new SqlParameter("@ProID", proID));
-            cmd.Parameters.Add(new SqlParameter("@ProQuantity", proQuantity));
-
             try
             {
 
@@ -242,5 +171,6 @@ namespace SEFinalProject_Winform
             MessageBox.Show("Save successfully!");
             LoadData();
         }
+    
     }
 }

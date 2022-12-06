@@ -39,5 +39,13 @@ namespace SEFinalProject_Winform
             phieuNhap.MdiParent =  this;
             phieuNhap.Show();
         }
+
+        private void lượngHàngTồnKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductManager frmproduct = new frmProductManager();
+            frmproduct.MdiParent = this;
+            frmproduct.Show();
+
+        }
     }
 }
