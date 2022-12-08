@@ -52,6 +52,7 @@ namespace FinalWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                aGENT.AGENTID = "A00" +db.AGENT.Count().ToString();
                 db.AGENT.Add(aGENT);
                 db.SaveChanges();
                 return RedirectToAction("Index");
