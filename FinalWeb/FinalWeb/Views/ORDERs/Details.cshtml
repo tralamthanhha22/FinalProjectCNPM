@@ -67,9 +67,9 @@
     </dl>
 </div>
 <div>
-    @foreach(var data in ViewBag.OrderDetail)
+    @foreach (var data in ViewBag.OrderDetail)
     {
-        if(data.ORDERID==ViewBag.Id)
+        if (data.ORDERID == ViewBag.Id)
         {
             <dl class="dl-horizontal">
                 <dd>Mã chi tiết hóa đơn: @data.ODETAIL_ID</dd>
@@ -80,15 +80,26 @@
             </dl>
         }
 
-     }
+    }
 </div>
 <div style="color:red; font-size:large">
     Tổng cộng:@Html.DisplayFor(model => model.Total)
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
-    @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
-</p>
-<p>
-    @Html.ActionLink("Chuyển khoản qua VNPAY", "Index")
-</p>
+@if (Model.PAYMENTMETHOD == "Tiền mặt")
+{
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
+        @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
+    </p>
+}
+
+else
+{
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
+        @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
+    </p>
+    <p>
+        @Html.ActionLink("Chuyển khoản qua VNPAY", "Payment", "ORDERs")
+    </p>
+}
