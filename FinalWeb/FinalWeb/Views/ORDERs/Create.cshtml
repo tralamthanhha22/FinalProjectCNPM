@@ -3,7 +3,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Tạo đơn hàng</h2>
 @if (Session["cart"] != null)
 {
     using (Html.BeginForm())
@@ -14,122 +14,124 @@
             <h4>ORDER</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.ORDERID, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ORDERID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.OrderDetail } })
-                        @Html.ValidationMessageFor(model => model.ORDERID, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+            
             <div class="form-group">
-                @Html.LabelFor(model => model.ORDERID, htmlAttributes: new { @class = "control-label col-md-2" })
+                
+                @*@Html.LabelFor(model => model.ORDERID, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
+                    <h3>Mã đơn hàng:</h3>
                     @Html.EditorFor(model => model.ORDERID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Count } })
                     @Html.ValidationMessageFor(model => model.ORDERID, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.AGENTID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <h3>Mã đại lý:</h3>
+                @*@Html.LabelFor(model => model.AGENTID, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.AGENTID, new { htmlAttributes = new { @class = "form-control", @Value = Session["AGENTID"] } })
                     @Html.ValidationMessageFor(model => model.AGENTID, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.DELIVERYNOTE_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-                @*<div class="col-md-10">
-                        @Html.EditorFor(model => model.DELIVERYNOTE_ID, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DELIVERYNOTE_ID, "", new { @class = "text-danger" })
-                    </div>*@
-                <div class="col-md-10">
-                    <table class="table">
-                        @foreach (var item in ViewBag.Delivery)
-                        {
-                            if (Convert.ToInt32(Session["total"]) < 500000)
+                <h3>Đơn vị vận chuyển:</h3>
+                    @*@Html.LabelFor(model => model.DELIVERYNOTE_ID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @*<div class="col-md-10">
+            @Html.EditorFor(model => model.DELIVERYNOTE_ID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DELIVERYNOTE_ID, "", new { @class = "text-danger" })
+        </div>*@
+                    <div class="col-md-10">
+                        <table class="table">
+                            @foreach (var item in ViewBag.Delivery)
                             {
-                                if (item.DELIVERYNOTE_ID != "D0000")
+                                if (Convert.ToInt32(Session["total"]) < 500000)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.EditorFor(model => model.DELIVERYNOTE_ID, new
-                                            { htmlAttributes = new { @class = "form-control", @name="delivery",@type = "radio", @Value = item.DELIVERYNOTE_ID } })
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYNOTE_ID
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYNAME
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYFEE
-                                        </td>
-                                        <td>
-                                            <img src="~/Uploads/delivery/@item.DELIVERYIMG" style="max-width:100px" />
-                                        </td>
-                                    </tr>
+                                    if (item.DELIVERYNOTE_ID != "D0000")
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.EditorFor(model => model.DELIVERYNOTE_ID, new
+                                                { htmlAttributes = new { @class = "form-control", @name = "delivery", @type = "radio", @Value = item.DELIVERYNOTE_ID } })
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYNOTE_ID
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYNAME
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYFEE
+                                            </td>
+                                            <td>
+                                                <img src="~/Uploads/delivery/@item.DELIVERYIMG" style="max-width:100px" />
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.DELIVERYFEE == 0)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.EditorFor(model => model.DELIVERYNOTE_ID, new
+                                           { htmlAttributes = new { @class = "form-control", @type = "radio", @Value = item.DELIVERYNOTE_ID, @name = "delivery" } })
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYNOTE_ID
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYNAME
+                                            </td>
+                                            <td>
+                                                @item.DELIVERYFEE
+                                            </td>
+                                            <td>
+                                                <img src="~/Uploads/delivery/@item.DELIVERYIMG" style="max-width:100px" />
+                                            </td>
+                                        </tr>
+                                    }
+
                                 }
                             }
-                            else
-                            {
-                                if (item.DELIVERYFEE == 0)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.EditorFor(model => model.DELIVERYNOTE_ID, new
-                                       { htmlAttributes = new { @class = "form-control", @type = "radio", @Value = item.DELIVERYNOTE_ID,@name = "delivery" } })
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYNOTE_ID
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYNAME
-                                        </td>
-                                        <td>
-                                            @item.DELIVERYFEE
-                                        </td>
-                                        <td>
-                                            <img src="~/Uploads/delivery/@item.DELIVERYIMG" style="max-width:100px" />
-                                        </td>
-                                    </tr>
-                                }
-
-                            }
-                        }
-                    </table>
-                </div>
-            </div>
+                        </table>
+                    </div>
+</div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ORDERDATE, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ORDERDATE, new { htmlAttributes = new { @class = "form-control", @type = "datetime-local" } })
-                    @Html.ValidationMessageFor(model => model.ORDERDATE, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                <h3>Ngày đặt hàng:</h3>
+                    @*@Html.LabelFor(model => model.ORDERDATE, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ORDERDATE, new { htmlAttributes = new { @class = "form-control", @type = "datetime-local" } })
+                        @Html.ValidationMessageFor(model => model.ORDERDATE, "", new { @class = "text-danger" })
+                    </div>
+</div>
             <div class="form-group" hidden>
-                @Html.LabelFor(model => model.ORDERSTATUS, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ORDERSTATUS, new { htmlAttributes = new { @class = "form-control", @Value = "đã đặt hàng" } })
-                    @Html.ValidationMessageFor(model => model.ORDERSTATUS, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                <h3>Tình trạng đơn hàng:</h3>
+                    @*@Html.LabelFor(model => model.ORDERSTATUS, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ORDERSTATUS, new { htmlAttributes = new { @class = "form-control", @Value = "đã đặt hàng" } })
+                        @Html.ValidationMessageFor(model => model.ORDERSTATUS, "", new { @class = "text-danger" })
+                    </div>
+</div>
             <div class="form-group" hidden>
-                @Html.LabelFor(model => model.PAYMENTSTATUS, new { htmlAttributes = new { @class = "control-label col-md-2" } })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PAYMENTSTATUS, new { htmlAttributes = new { @class = "form-control", @Value = "chưa trả tiền" } })
-                    @Html.ValidationMessageFor(model => model.PAYMENTSTATUS, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                <h3>Tình trạng thanh toán:</h3>
+                    @*@Html.LabelFor(model => model.PAYMENTSTATUS, new { htmlAttributes = new { @class = "control-label col-md-2" } })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PAYMENTSTATUS, new { htmlAttributes = new { @class = "form-control", @Value = "chưa trả tiền" } })
+                        @Html.ValidationMessageFor(model => model.PAYMENTSTATUS, "", new { @class = "text-danger" })
+                    </div>
+</div>
             <div class="form-group">
-                @Html.LabelFor(model => model.PAYMENTMETHOD, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.RadioButtonFor(model => model.PAYMENTMETHOD, "Chuyển khoản")
-                    Chuyển khoản
-                    @Html.RadioButtonFor(model => model.PAYMENTMETHOD, "Tiền mặt")
-                    Tiền mặt
-                </div>
-            </div>
+                <h3>Phương thức thanh toán:</h3>
+    @*@Html.LabelFor(model => model.PAYMENTMETHOD, htmlAttributes: new { @class = "control-label col-md-2" })*@
+    <div class="col-md-10">
+        @Html.RadioButtonFor(model => model.PAYMENTMETHOD, "Chuyển khoản")
+        Chuyển khoản
+        @Html.RadioButtonFor(model => model.PAYMENTMETHOD, "Tiền mặt")
+        Tiền mặt
+    </div>
+</div>
             <div class="form-group">
                 @foreach (var item in Session["cart"] as List<FinalWeb.Models.Cart>)
                 {

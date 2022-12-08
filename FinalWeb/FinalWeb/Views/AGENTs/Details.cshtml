@@ -4,14 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết</h2>
 
 <div>
-    <h4>AGENT</h4>
+    <h4>Đại lý:</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTNAME)
+            Tên đại lý:
+            @*@Html.DisplayNameFor(model => model.AGENTNAME)*@
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTADDRESS)
+            Địa chỉ đại lý:
+            @*@Html.DisplayNameFor(model => model.AGENTADDRESS)*@
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTEMAIL)
+            Email đại lý:
+            @*@Html.DisplayNameFor(model => model.AGENTEMAIL)*@
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTPHONE)
+            SĐT:
+            @*@Html.DisplayNameFor(model => model.AGENTPHONE)*@
         </dt>
 
         <dd>
@@ -43,7 +47,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTPASSWORD)
+            Mật khẩu:
+            @*@Html.DisplayNameFor(model => model.AGENTPASSWORD)*@
         </dt>
 
         <dd>
@@ -53,6 +58,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AGENTID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.AGENTID }) |
+    @Html.ActionLink("Quay lại trang chủ", "Index")
 </p>
