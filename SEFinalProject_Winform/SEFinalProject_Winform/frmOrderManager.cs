@@ -37,7 +37,7 @@ namespace SEFinalProject_Winform
         {
             SqlConnection conn = new SqlConnection(strConn);
             conn.Open();
-            String sSQL = "Select * from " + '"' + "ORDER" + '"' + ";";
+            String sSQL = "Select * from " + '"' + "ORDER" + '"' + " where  ORDERSTATUS != N'Đã nhận được hàng';";
             tbOrderDate.Enabled = false;
 
             SqlCommand cmd = new SqlCommand(sSQL, conn);

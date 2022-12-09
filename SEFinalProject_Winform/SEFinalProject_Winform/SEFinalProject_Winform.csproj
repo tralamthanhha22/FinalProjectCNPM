@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCustomerManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerManager.Designer.cs">
+      <DependentUpon>frmCustomerManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoiTacVanChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiTacVanChuyen.Designer.cs">
+      <DependentUpon>frmDoiTacVanChuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoginAccountant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,8 +90,26 @@
     <Compile Include="frmProductManager.Designer.cs">
       <DependentUpon>frmProductManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThongKeBestSeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeBestSeller.Designer.cs">
+      <DependentUpon>frmThongKeBestSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongKeNhapThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeNhapThang.Designer.cs">
+      <DependentUpon>frmThongKeNhapThang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCustomerManager.resx">
+      <DependentUpon>frmCustomerManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiTacVanChuyen.resx">
+      <DependentUpon>frmDoiTacVanChuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoginAccountant.resx">
       <DependentUpon>frmLoginAccountant.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductManager.resx">
       <DependentUpon>frmProductManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeBestSeller.resx">
+      <DependentUpon>frmThongKeBestSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeNhapThang.resx">
+      <DependentUpon>frmThongKeNhapThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

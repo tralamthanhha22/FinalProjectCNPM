@@ -18,6 +18,9 @@ namespace SEFinalProject_Winform
     {
         String strConn = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
         private string AccountID;
+
+        public delegate void Login(String accountantID);
+        public event Login LoginEvent;
         public frmLoginAccountant()
         {
             InitializeComponent();
@@ -28,6 +31,8 @@ namespace SEFinalProject_Winform
             AccountID = Message;
            
         }
+
+        
 
         private void btnLogin_Clicked(object sender, EventArgs e)
         {
@@ -54,10 +59,14 @@ namespace SEFinalProject_Winform
             da.Fill(dt);
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Chào mừng!");
-                AccountID = tbAccountantID.Text;
+                if (LoginEvent != null)
+                {
+                    LoginEvent(tbAccountantID.Text);
+                }
+                
                 
                 this.Close();
+                
             }
             else
             {
