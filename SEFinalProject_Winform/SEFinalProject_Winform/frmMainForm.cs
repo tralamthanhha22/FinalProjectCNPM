@@ -47,5 +47,19 @@ namespace SEFinalProject_Winform
             frmproduct.Show();
 
         }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //frmCustomerManagement frmCus = new frmCustomerManagement();
+            //frmCus.MdiParent = this;
+            //frmCus.Show();
+        }
+
+        private void quảnLýĐơnHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOrderManager frmOrder = new frmOrderManager();
+            frmOrder.MdiParent = this;
+            frmOrder.Show();
+        }
     }
 }

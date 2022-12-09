@@ -91,8 +91,8 @@ namespace SEFinalProject_Winform
                 tbProUseDate.Text = row[8].Value.ToString();
                 proQuantityNow = int.Parse(row[4].Value.ToString());
 
-               // String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
-                String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+               // String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -147,7 +147,7 @@ namespace SEFinalProject_Winform
 
         private void addNewProduct(object sender, EventArgs e)
         {
-            String location = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\FinalWeb\\FinalWeb\\Uploads\\products";
+            //String location = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\FinalWeb\\FinalWeb\\Uploads\\products";
             String proID = tbProductID.Text.ToString();
             String proName = tbProductName.Text.ToString();
             String proOrigin = tbProOrigin.Text.ToString();
@@ -159,8 +159,8 @@ namespace SEFinalProject_Winform
             DateTime useDate = tbProUseDate.Value;
             Image a = picturePro.Image;
             String[] ele = proImage.Split('\\');
-            a.Save(Path.Combine(location, ele[ele.Length - 1]));
-            MessageBox.Show(Path.Combine(location, ele[ele.Length - 1]));
+            //a.Save(Path.Combine(location, ele[ele.Length - 1]));
+            //MessageBox.Show(Path.Combine(location, ele[ele.Length - 1]));
             //MessageBox.Show(ele[ele.Length - 1]);
             try
             {

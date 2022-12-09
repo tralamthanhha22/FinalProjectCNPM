@@ -36,3 +36,4 @@ C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProjec
 C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.pdb
 D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmProductManager.resources
 C:\Users\ACER\source\repos\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmProductManager.resources
+D:\Homework\SoftwareEngineering\CloneSE\FinalProjectCNPM\SEFinalProject_Winform\SEFinalProject_Winform\obj\Debug\SEFinalProject_Winform.frmOrderManager.resources
