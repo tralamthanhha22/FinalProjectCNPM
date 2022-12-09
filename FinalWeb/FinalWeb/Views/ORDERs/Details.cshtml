@@ -4,14 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết đơn hàng</h2>
 
 <div>
-    <h4>ORDER</h4>
+    <h4>Đơn hàng</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AGENTID)
+            Mã đại lý:
+            @*@Html.DisplayNameFor(model => model.AGENTID)*@
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DELIVERYNOTE_ID)
+            Mã đơn vị vận chuyển:
+            @*@Html.DisplayNameFor(model => model.DELIVERYNOTE_ID)*@
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ORDERDATE)
+            Ngày đặt hàng:
+            @*@Html.DisplayNameFor(model => model.ORDERDATE)*@
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ORDERSTATUS)
+            Tình trạng đơn hàng:
+            @*@Html.DisplayNameFor(model => model.ORDERSTATUS)*@
         </dt>
 
         <dd>
@@ -43,7 +47,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PAYMENTSTATUS)
+            Tình trạng thanh toán:
+            @*@Html.DisplayNameFor(model => model.PAYMENTSTATUS)*@
         </dt>
 
         <dd>
@@ -51,7 +56,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PAYMENTMETHOD)
+            Phương thức thanh toán:
+            @*@Html.DisplayNameFor(model => model.PAYMENTMETHOD)*@
         </dt>
 
         <dd>
@@ -61,25 +67,39 @@
     </dl>
 </div>
 <div>
-    @foreach(var data in ViewBag.OrderDetail)
+    @foreach (var data in ViewBag.OrderDetail)
     {
-        if(data.ORDERID==ViewBag.Id)
+        if (data.ORDERID == ViewBag.Id)
         {
             <dl class="dl-horizontal">
-                <dd>ORDER DETAIL ID: @data.ODETAIL_ID</dd>
-                <dd>ORDER ID: @data.ORDERID</dd>
-                <dd>Product: @data.PRODUCTID </dd>
-                <dd>Quantity: @data.BUYQUANTITY</dd>
-                <dd>Delivery fee: @Session["deliveryFee"] </dd>
+                <dd>Mã chi tiết hóa đơn: @data.ODETAIL_ID</dd>
+                <dd>Mã hóa đơn: @data.ORDERID</dd>
+                <dd>Sản phẩm: @data.PRODUCTID </dd>
+                <dd>Số lượng: @data.BUYQUANTITY</dd>
+                <dd>Phí giao hàng: @Session["deliveryFee"] </dd>
             </dl>
         }
 
-                }
+    }
 </div>
 <div style="color:red; font-size:large">
-    Total:@Html.DisplayFor(model => model.Total)
+    Tổng cộng:@Html.DisplayFor(model => model.Total)
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@if (Model.PAYMENTMETHOD == "Tiền mặt")
+{
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
+        @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
+    </p>
+}
+
+else
+{
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
+        @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
+    </p>
+    <p>
+        @Html.ActionLink("Chuyển khoản qua VNPAY", "Payment", "ORDERs")
+    </p>
+}

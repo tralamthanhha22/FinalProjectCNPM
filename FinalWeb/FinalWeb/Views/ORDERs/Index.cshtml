@@ -4,33 +4,43 @@
     ViewBag.Title = "Lịch sử đơn hàng";
 }
 
-<h2>Index</h2>
+<h2>Lịch sử đơn hàng</h2>
 
+<h7>
+    Stk: 0123456789
+    <br />
+    Sđt Momo: 0123456789
+    <br />
+    Nội dung chuyển khoản:
+    <br />[Tên]+"_"+[ORDERID]+"_"+[ORDER DETAIL ID]
+    <br />Quý khách chỉ nhận được hàng khi thanh toán thành công!
+    <br />
+</h7>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo đơn hàng mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            ORDER ID:
+            Mã đơn hàng:
         </th>
         <th>
-            AGENT ID:
+            Mã đại lý:
         </th>
         <th>
-            DELIVERY NOTE ID:
+            Mã giao hàng:
         </th>
         <th>
-            ORDER DATE
+            Ngày đặt hàng:
         </th>
         <th>
-            ORDER STATUS
+            Tình trạng đơn hàng:
         </th>
         <th>
-            PAYMENT STATUS
+            Tình trạng thanh toán:
         </th>
         <th>
-            PAYMENT METHOD
+            Phương thức thanh toán
         </th>
         <th></th>
     </tr>
@@ -39,46 +49,6 @@
     {
         if (@item.AGENTID.Equals(@Session["AGENTID"]))
         {
-            if (@item.PAYMENTMETHOD == "Chuyển khoản")
-            {
-                <tr>
-                    Stk: 0123456789
-                    <br />
-                    Sđt Momo: 0123456789
-                    <br />
-                    Nội dung chuyển khoản:
-                    <br />[Tên]+"_"+[ORDERID]+"_"+[ORDER DETAIL ID]
-                    <br />Quý khách chỉ nhận được hàng khi chuyển khoản thành công!
-                    <td>
-                        @item.ORDERID
-                    </td>
-                    <td>
-                        @item.AGENTID
-                    </td>
-                    <td>
-                        @item.DELIVERYNOTE_ID
-                    </td>
-                    <td>
-                        @item.ORDERDATE
-                    </td>
-                    <td>
-                        @item.ORDERSTATUS
-                    </td>
-                    <td>
-                        @item.PAYMENTSTATUS
-                    </td>
-                    <td>
-                        @item.PAYMENTMETHOD
-                    </td>
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ORDERID }) |*@
-                        @Html.ActionLink("Details", "Details", new { id = item.ORDERID })
-                        @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
-                    </td>
-                </tr>
-            }
-            else
-            {
                 <tr>
                     <td>
                         @item.ORDERID
@@ -107,8 +77,6 @@
                         @*@Html.ActionLink("Delete", "Delete", new { id=item.ORDERID })*@
                     </td>
                 </tr>
-            }
-
         }
 
     }

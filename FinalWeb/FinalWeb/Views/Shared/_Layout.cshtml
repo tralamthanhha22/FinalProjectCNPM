@@ -19,17 +19,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nhà phân phối sỉ lẻ Hà Doo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Pharmacity", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 @if (Session["Fullname"] == null)
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Products", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sản phẩm", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Về chúng tôi", "About", "Home")</li>
+                        <li>@Html.ActionLink("Liên lạc", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Đăng nhập", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Đăng ký", "Create", "AGENTs")</li>
                         <li><a href="/Home/CheckOut">
                             <i class="fa">&#xf07a; @Session["item_count"]</i>
                             </a>
@@ -39,16 +40,17 @@
                 else
                 {
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Products", "Index", "PRODUCTs")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                <li>@Html.ActionLink("Sản phẩm", "Index", "PRODUCTs")</li>
+                <li>@Html.ActionLink("Về chúng tôi", "About", "Home")</li>
+                <li>@Html.ActionLink("Liên lạc", "Contact", "Home")</li>
                 <li>
                     @Html.ActionLink(@Session["Fullname"].ToString(), "Details/"
                + @Session["AGENTID"].ToString(), "AGENTs")
             </li>
             <li>@Html.ActionLink("Lịch sử đặt hàng", "Index", "ORDERs")</li>
-            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+            <li>@Html.ActionLink("Đăng xuất", "Logout", "Home")</li>
+            <li>@Html.ActionLink("Xóa tài khoản", "Delete/"+ @Session["AGENTID"], "AGENTs")</li>
             <li>
                 <a href="/Home/CheckOut">
                     <i class="fa">&#xf07a; @Session["item_count"]</i>
@@ -63,7 +65,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Chào mừng quý khách!</p>
         </footer>
     </div>
 
