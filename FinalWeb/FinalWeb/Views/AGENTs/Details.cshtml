@@ -58,6 +58,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.AGENTID }) |
-    @Html.ActionLink("Quay lại trang chủ", "Index")
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.AGENTID })<br />
+    @Html.ActionLink("Xóa tài khoản","Delete", new { id = Model.AGENTID })<br />
+    @Html.ActionLink("Quay lại trang chủ", "Index")<br />
 </p>
