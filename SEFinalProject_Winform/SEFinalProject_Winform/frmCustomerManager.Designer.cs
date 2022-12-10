@@ -48,10 +48,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(223, 146);
+            this.dataGridView1.Location = new System.Drawing.Point(172, 147);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(716, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(910, 206);
             this.dataGridView1.TabIndex = 5;
             // 
             // label2
@@ -74,6 +74,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCustomerManager";
             this.Text = "frmCustomerManager";
+            this.Load += new System.EventHandler(this.frmCustomerManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -58,10 +58,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbImportID = new System.Windows.Forms.Label();
+            this.tbImportDate = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnAddImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numberProductQuantity)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +87,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 111);
+            this.label2.Location = new System.Drawing.Point(24, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 31);
             this.label2.TabIndex = 1;
@@ -89,7 +97,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 158);
+            this.label3.Location = new System.Drawing.Point(35, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 2;
@@ -97,14 +105,14 @@
             // 
             // tbProductID
             // 
-            this.tbProductID.Location = new System.Drawing.Point(268, 158);
+            this.tbProductID.Location = new System.Drawing.Point(129, 158);
             this.tbProductID.Name = "tbProductID";
             this.tbProductID.Size = new System.Drawing.Size(136, 20);
             this.tbProductID.TabIndex = 3;
             // 
             // tbProductName
             // 
-            this.tbProductName.Location = new System.Drawing.Point(584, 157);
+            this.tbProductName.Location = new System.Drawing.Point(376, 154);
             this.tbProductName.Name = "tbProductName";
             this.tbProductName.Size = new System.Drawing.Size(286, 20);
             this.tbProductName.TabIndex = 5;
@@ -113,7 +121,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(485, 161);
+            this.label4.Location = new System.Drawing.Point(277, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 4;
@@ -123,7 +131,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(962, 157);
+            this.label10.Location = new System.Drawing.Point(675, 157);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 16);
             this.label10.TabIndex = 16;
@@ -131,7 +139,7 @@
             // 
             // numberProductQuantity
             // 
-            this.numberProductQuantity.Location = new System.Drawing.Point(1060, 154);
+            this.numberProductQuantity.Location = new System.Drawing.Point(773, 154);
             this.numberProductQuantity.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -158,9 +166,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.tbProOrigin);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(158, 201);
+            this.groupBox1.Location = new System.Drawing.Point(30, 201);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1060, 164);
+            this.groupBox1.Size = new System.Drawing.Size(649, 255);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết sản phẩm";
@@ -170,12 +178,12 @@
             this.tbProUseDate.Location = new System.Drawing.Point(124, 107);
             this.tbProUseDate.Margin = new System.Windows.Forms.Padding(2);
             this.tbProUseDate.Name = "tbProUseDate";
-            this.tbProUseDate.Size = new System.Drawing.Size(151, 20);
+            this.tbProUseDate.Size = new System.Drawing.Size(218, 20);
             this.tbProUseDate.TabIndex = 31;
             // 
             // btnChooseImage
             // 
-            this.btnChooseImage.Location = new System.Drawing.Point(796, 88);
+            this.btnChooseImage.Location = new System.Drawing.Point(394, 98);
             this.btnChooseImage.Name = "btnChooseImage";
             this.btnChooseImage.Size = new System.Drawing.Size(89, 39);
             this.btnChooseImage.TabIndex = 30;
@@ -187,7 +195,7 @@
             // 
             this.picturePro.BackgroundImage = global::SEFinalProject_Winform.Properties.Resources.icon_noimage;
             this.picturePro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picturePro.Location = new System.Drawing.Point(902, 19);
+            this.picturePro.Location = new System.Drawing.Point(500, 29);
             this.picturePro.Name = "picturePro";
             this.picturePro.Size = new System.Drawing.Size(117, 134);
             this.picturePro.TabIndex = 29;
@@ -197,7 +205,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(793, 56);
+            this.label12.Location = new System.Drawing.Point(391, 66);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 16);
             this.label12.TabIndex = 28;
@@ -205,9 +213,9 @@
             // 
             // rtbProDes
             // 
-            this.rtbProDes.Location = new System.Drawing.Point(437, 29);
+            this.rtbProDes.Location = new System.Drawing.Point(124, 159);
             this.rtbProDes.Name = "rtbProDes";
-            this.rtbProDes.Size = new System.Drawing.Size(275, 121);
+            this.rtbProDes.Size = new System.Drawing.Size(218, 90);
             this.rtbProDes.TabIndex = 27;
             this.rtbProDes.Text = "";
             // 
@@ -215,7 +223,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(329, 85);
+            this.label11.Location = new System.Drawing.Point(16, 167);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 16);
             this.label11.TabIndex = 26;
@@ -225,7 +233,7 @@
             // 
             this.tbProPrice.Location = new System.Drawing.Point(124, 133);
             this.tbProPrice.Name = "tbProPrice";
-            this.tbProPrice.Size = new System.Drawing.Size(157, 20);
+            this.tbProPrice.Size = new System.Drawing.Size(218, 20);
             this.tbProPrice.TabIndex = 25;
             // 
             // label9
@@ -252,7 +260,7 @@
             // 
             this.tbProBrand.Location = new System.Drawing.Point(124, 81);
             this.tbProBrand.Name = "tbProBrand";
-            this.tbProBrand.Size = new System.Drawing.Size(157, 20);
+            this.tbProBrand.Size = new System.Drawing.Size(218, 20);
             this.tbProBrand.TabIndex = 21;
             // 
             // label7
@@ -269,7 +277,7 @@
             // 
             this.tbProType.Location = new System.Drawing.Point(124, 55);
             this.tbProType.Name = "tbProType";
-            this.tbProType.Size = new System.Drawing.Size(157, 20);
+            this.tbProType.Size = new System.Drawing.Size(218, 20);
             this.tbProType.TabIndex = 19;
             // 
             // label6
@@ -286,7 +294,7 @@
             // 
             this.tbProOrigin.Location = new System.Drawing.Point(124, 29);
             this.tbProOrigin.Name = "tbProOrigin";
-            this.tbProOrigin.Size = new System.Drawing.Size(157, 20);
+            this.tbProOrigin.Size = new System.Drawing.Size(218, 20);
             this.tbProOrigin.TabIndex = 17;
             // 
             // label5
@@ -307,7 +315,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(122, 422);
+            this.label13.Location = new System.Drawing.Point(91, 500);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(238, 31);
             this.label13.TabIndex = 19;
@@ -318,7 +326,7 @@
             this.btnAddNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddNew.Location = new System.Drawing.Point(485, 371);
+            this.btnAddNew.Location = new System.Drawing.Point(30, 463);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(184, 34);
             this.btnAddNew.TabIndex = 20;
@@ -329,11 +337,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(97, 463);
+            this.dataGridView1.Location = new System.Drawing.Point(97, 546);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1172, 218);
+            this.dataGridView1.Size = new System.Drawing.Size(1172, 135);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.loadCellContent);
             // 
@@ -342,7 +350,7 @@
             this.btnClear.BackColor = System.Drawing.SystemColors.Control;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClear.Location = new System.Drawing.Point(1105, 371);
+            this.btnClear.Location = new System.Drawing.Point(566, 463);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(113, 34);
             this.btnClear.TabIndex = 22;
@@ -355,7 +363,7 @@
             this.btnUpdate.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(675, 371);
+            this.btnUpdate.Location = new System.Drawing.Point(300, 463);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(184, 34);
             this.btnUpdate.TabIndex = 23;
@@ -363,12 +371,83 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.updateProduct);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(769, 203);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(223, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Dữ liệu phiếu nhập hiện tại";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(998, 208);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(78, 13);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Mã phiếu nhập";
+            // 
+            // tbImportID
+            // 
+            this.tbImportID.AutoSize = true;
+            this.tbImportID.Location = new System.Drawing.Point(1082, 208);
+            this.tbImportID.Name = "tbImportID";
+            this.tbImportID.Size = new System.Drawing.Size(34, 13);
+            this.tbImportID.TabIndex = 26;
+            this.tbImportID.Text = "I0010";
+            // 
+            // tbImportDate
+            // 
+            this.tbImportDate.AutoSize = true;
+            this.tbImportDate.Location = new System.Drawing.Point(1211, 208);
+            this.tbImportDate.Name = "tbImportDate";
+            this.tbImportDate.Size = new System.Drawing.Size(65, 13);
+            this.tbImportDate.TabIndex = 28;
+            this.tbImportDate.Text = "12/12/2022";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1146, 208);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(59, 13);
+            this.label17.TabIndex = 27;
+            this.label17.Text = "Ngày nhập";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(773, 230);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(558, 226);
+            this.dataGridView2.TabIndex = 29;
+            // 
+            // btnAddImport
+            // 
+            this.btnAddImport.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAddImport.Location = new System.Drawing.Point(1217, 463);
+            this.btnAddImport.Name = "btnAddImport";
+            this.btnAddImport.Size = new System.Drawing.Size(114, 34);
+            this.btnAddImport.TabIndex = 30;
+            this.btnAddImport.Text = "Xuất phiếu nhập";
+            this.btnAddImport.UseVisualStyleBackColor = false;
+            // 
             // frmNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1370, 693);
+            this.Controls.Add(this.btnAddImport);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.tbImportDate);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tbImportID);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dataGridView1);
@@ -391,6 +470,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +508,12 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnChooseImage;
         private System.Windows.Forms.DateTimePicker tbProUseDate;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label tbImportID;
+        private System.Windows.Forms.Label tbImportDate;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnAddImport;
     }
 }

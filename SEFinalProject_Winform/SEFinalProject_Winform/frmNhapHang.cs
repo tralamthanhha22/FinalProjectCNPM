@@ -12,19 +12,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace SEFinalProject_Winform
 {
     public partial class frmNhapHang : Form
     {
         String strConn = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-        
-
+        String AccountID = "";
         String proImage = "";
         int proQuantityNow = 0;
+        Boolean importCreatedCheck = false;
+
         public frmNhapHang()
         {
             InitializeComponent();
+        }
+
+        public frmNhapHang(String accountID)
+        {
+            InitializeComponent();
+            AccountID = accountID;
         }
 
         private void LoadData()
@@ -73,6 +81,10 @@ namespace SEFinalProject_Winform
             btnAddNew.Enabled = true;
             btnChooseImage.Enabled = true;
             this.WindowState = FormWindowState.Maximized;
+
+            tbImportID.Text =  createImportID();
+            tbImportDate.Text = DateTime.Now.ToString();
+            
 
         }
 
@@ -174,7 +186,7 @@ namespace SEFinalProject_Winform
 
             //insert into PRODUCT values ('P0000',N'Tên sản phẩm', 0, N'Xuất xứ', 0, N'Type', N'Brand', N'Des', '2024-12-23',0);
 
-            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMG)" +
+            String sSQL = "INSERT INTO PRODUCT (PRODUCTID, PRONAME, PROPRICE, PROORIGIN, PROQUANTITY, PROTYPE ,PROBRAND, PRODESCRIPTION, USEDATE, HASSOLD, PROIMAGE)" +
                 "VALUES (@ProID, @ProName, @ProPrice, @ProOrigin, @ProQuantity, @ProType, @ProBrand, @ProDes, @UseDate, @HasSold, @ProImage)";
             SqlConnection conn = new SqlConnection(strConn);
            
@@ -197,6 +209,12 @@ namespace SEFinalProject_Winform
             {
 
                 cmd.ExecuteNonQuery();
+                if (!importCreatedCheck)
+                {
+                    importCreatedCheck = true;
+                    createNewImport();
+                }
+                createImportDetail(tbImportID.Text);
                 clearFormData();
             }
             catch (Exception ex)
@@ -237,6 +255,13 @@ namespace SEFinalProject_Winform
             {
 
                 cmd.ExecuteNonQuery();
+                if (!importCreatedCheck)
+                {
+                    importCreatedCheck = true;
+                    createNewImport();
+                }
+
+                createImportDetail(tbImportID.Text);
                 clearFormData();
             }
             catch (Exception ex)
@@ -246,5 +271,141 @@ namespace SEFinalProject_Winform
             MessageBox.Show("Save successfully!");
             LoadData();
         }
+
+        private String createImportID()
+        {
+            String importID = "";
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            String sSQL = "SELECT Max(IMPORTID) FROM IMPORT";
+
+            SqlCommand cmd = new SqlCommand(sSQL, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                String temp = Regex.Replace (dt.Rows[0][0].ToString(), "I", string.Empty);
+                int id = int.Parse(temp) + 1;
+                String idsinh = String.Format("{0:0000.#}", id);
+                importID = "I" + idsinh;
+                
+            }
+            else
+            {
+                //MessageBox.Show("No data");
+            }
+
+            
+            conn.Close();
+           
+            return importID;
+        }
+
+        private void createNewImport()
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            String sSQL = "INSERT INTO IMPORT values (@ImportID, @AcountID, @ImportDate);";
+            SqlCommand cmd2 = new SqlCommand(sSQL, conn);
+
+            cmd2.Parameters.Add(new SqlParameter("@ImportID", tbImportID.Text));
+            cmd2.Parameters.Add(new SqlParameter("@AcountID", AccountID));
+            cmd2.Parameters.Add(new SqlParameter("@ImportDate", DateTime.Now.ToString()));
+            try
+            {
+
+                cmd2.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error:" + ex.Message);
+            }
+            conn.Close();
+        }
+       
+        private void createImportDetail(String importID)
+        {
+            String importDetailID = "";
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            String sSQL = "select Max(IDETAIL_ID) from IMPORT_DETAIL;";
+
+            SqlCommand cmd = new SqlCommand(sSQL, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                String temp = Regex.Replace(dt.Rows[0][0].ToString(), "ID", string.Empty);
+                int id = int.Parse(temp) + 1;
+                String idsinh = String.Format("{0:000.#}", id);
+                importDetailID = "ID" +  idsinh;
+
+            }
+            else
+            {
+                //MessageBox.Show("No data");
+            }
+
+            //add new import detail 
+            
+            String importQuantity = numberProductQuantity.Value.ToString();
+            
+
+            sSQL = "INSERT INTO IMPORT_DETAIL values (@IDETAIL_ID, @ProID, @IMPORTID, @ImportQUuantity);";
+            SqlCommand cmd2 = new SqlCommand(sSQL, conn);
+
+            cmd2.Parameters.Add(new SqlParameter("@IDETAIL_ID", importDetailID));
+            cmd2.Parameters.Add(new SqlParameter("@ProID", tbProductID.Text));
+            cmd2.Parameters.Add(new SqlParameter("@IMPORTID", tbImportID.Text));
+            cmd2.Parameters.Add(new SqlParameter("@ImportQUuantity", importQuantity));
+            try
+            {
+
+                cmd2.ExecuteNonQuery();
+                LoadImportData(importID);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error:" + ex.Message);
+                MessageBox.Show("Có lỗi khi nhập hàng");
+            }
+            
+            
+
+            conn.Close();
+        }
+
+        private void LoadImportData(String importID)
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            String sSQL = "SELECT IDETAIL_ID as \"Mã chi tiết\", PRODUCTID as \"Mã sản phẩm\", IMPORTID as \"Mã đơn nhập\", IMPORTQUANTITY as \"Số lượng nhập\"  FROM IMPORT_DETAIL where IMPORTID = @importID";
+
+            SqlCommand cmd = new SqlCommand(sSQL, conn);
+            cmd.Parameters.Add(new SqlParameter("@importID", tbImportID.Text));
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                dataGridView2.DataSource = dt;
+                dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            }
+            else
+            {
+                //MessageBox.Show("No data");
+            }
+
+            conn.Close();
+        }
+
+        private void createPDFReport()
+        {
+
+        }
+
     }
 }

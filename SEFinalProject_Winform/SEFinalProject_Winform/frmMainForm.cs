@@ -67,13 +67,13 @@ namespace SEFinalProject_Winform
                 tbtênNhânViênToolStripMenuItem.Text = "Tên nhân viên: " + dt.Rows[0][1].ToString();
                 tbsốĐiệnThoạiToolStripMenuItem.Text ="Số điện thoại: " +  dt.Rows[0][2].ToString();
                 tbđịaChỉToolStripMenuItem.Text = "Địa chỉ: " + dt.Rows[0][3].ToString();
-
+                AccountID = accountantID;
             }
         }
 
         private void nhậpHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmNhapHang phieuNhap = new frmNhapHang();
+            frmNhapHang phieuNhap = new frmNhapHang(AccountID);
             phieuNhap.MdiParent =  this;
             phieuNhap.Show();
         }
