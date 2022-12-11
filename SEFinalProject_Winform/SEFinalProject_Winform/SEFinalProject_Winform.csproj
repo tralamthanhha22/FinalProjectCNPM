@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetImport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetImport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomerManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +88,12 @@
     </Compile>
     <Compile Include="frmOrderManager.Designer.cs">
       <DependentUpon>frmOrderManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreviewImportPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreviewImportPrint.Designer.cs">
+      <DependentUpon>frmPreviewImportPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductManager.cs">
       <SubType>Form</SubType>
@@ -122,6 +133,9 @@
     <EmbeddedResource Include="frmOrderManager.resx">
       <DependentUpon>frmOrderManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPreviewImportPrint.resx">
+      <DependentUpon>frmPreviewImportPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProductManager.resx">
       <DependentUpon>frmProductManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,11 +150,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\FormInPhieuXuat.Designer.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportImport.rdlc" />
+    <None Include="DataSetImport.xsc">
+      <DependentUpon>DataSetImport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetImport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetImport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetImport.xss">
+      <DependentUpon>DataSetImport.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

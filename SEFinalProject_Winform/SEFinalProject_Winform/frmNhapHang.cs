@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using System.Text.RegularExpressions;
 
 namespace SEFinalProject_Winform
@@ -23,6 +15,9 @@ namespace SEFinalProject_Winform
         String proImage = "";
         int proQuantityNow = 0;
         Boolean importCreatedCheck = false;
+        DataTable table4Report = null;
+        private string documentContents = "";
+        private string stringToPrint = "";
 
         public frmNhapHang()
         {
@@ -84,7 +79,9 @@ namespace SEFinalProject_Winform
 
             tbImportID.Text =  createImportID();
             tbImportDate.Text = DateTime.Now.ToString();
-            
+            LoadImportData("I0006");
+
+
 
         }
 
@@ -384,13 +381,13 @@ namespace SEFinalProject_Winform
             String sSQL = "SELECT IDETAIL_ID as \"Mã chi tiết\", PRODUCTID as \"Mã sản phẩm\", IMPORTID as \"Mã đơn nhập\", IMPORTQUANTITY as \"Số lượng nhập\"  FROM IMPORT_DETAIL where IMPORTID = @importID";
 
             SqlCommand cmd = new SqlCommand(sSQL, conn);
-            cmd.Parameters.Add(new SqlParameter("@importID", tbImportID.Text));
+            cmd.Parameters.Add(new SqlParameter("@importID", importID));
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            table4Report = new DataTable();
+            da.Fill(table4Report);
+            if (table4Report.Rows.Count > 0)
             {
-                dataGridView2.DataSource = dt;
+                dataGridView2.DataSource = table4Report;
                 dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
@@ -402,10 +399,13 @@ namespace SEFinalProject_Winform
             conn.Close();
         }
 
-        private void createPDFReport()
+
+        private void createPDFReport(object sender, EventArgs e)
         {
+            
 
         }
 
+      
     }
 }

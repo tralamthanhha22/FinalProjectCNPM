@@ -434,6 +434,7 @@
             this.btnAddImport.TabIndex = 30;
             this.btnAddImport.Text = "Xuất phiếu nhập";
             this.btnAddImport.UseVisualStyleBackColor = false;
+            this.btnAddImport.Click += new System.EventHandler(this.createPDFReport);
             // 
             // frmNhapHang
             // 
