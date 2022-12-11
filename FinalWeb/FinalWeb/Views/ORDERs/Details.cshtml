@@ -26,6 +26,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.DELIVERYNOTE_ID)
+            @ViewBag.delivery
         </dd>
 
         <dt>
@@ -76,7 +77,6 @@
                 <dd>Mã hóa đơn: @data.ORDERID</dd>
                 <dd>Sản phẩm: @data.PRODUCTID </dd>
                 <dd>Số lượng: @data.BUYQUANTITY</dd>
-                <dd>Phí giao hàng: @Session["deliveryFee"] </dd>
             </dl>
         }
 
@@ -91,6 +91,9 @@
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.ORDERID }) |*@
         @Html.ActionLink("Quay lại danh sách đơn hàng", "Index")
     </p>
+    <p>
+        @Html.ActionLink("Xác nhận đã nhận được hàng", "MarkReceive/", new { OrderID = Model.ORDERID });
+    </p>
 }
 
 else
@@ -102,4 +105,14 @@ else
     <p>
         @Html.ActionLink("Chuyển khoản qua VNPAY", "Payment", "ORDERs")
     </p>
+    if(Model.PAYMENTSTATUS=="Đã thanh toán thành công")
+    { 
+        <p>
+            @Html.ActionLink("Xác nhận đã nhận được hàng", "MarkReceive/", new { Model.ORDERID });
+        </p>
+    }
+    else 
+    { 
+        <p></p>
+    }
 }

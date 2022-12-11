@@ -38,15 +38,52 @@ namespace FinalWeb.Controllers
             ViewBag.Id = id;
             ViewBag.OrderDetail = db.ORDER_DETAIL.ToList();
             ORDER oRDER = db.ORDER.Find(id);
-            oRDER.PAYMENTSTATUS= paymentstatus;
-            System.Diagnostics.Debug.WriteLine("\n payment status 1: "+oRDER.PAYMENTSTATUS+"\n");
+            if(oRDER.PAYMENTMETHOD=="Chuyển khoản")
+            {
+                oRDER.PAYMENTSTATUS = paymentstatus;
+                System.Diagnostics.Debug.WriteLine("\n payment status 1: " + oRDER.PAYMENTSTATUS + "\n");
+            }
+            else
+            {
+                oRDER.PAYMENTSTATUS = "chưa trả tiền";
+            }
             total = Convert.ToInt32(oRDER.Total)*100;
             if (oRDER == null)
             {
                 return HttpNotFound();
             }
+            var delivery=db.DELIVERY.Find(oRDER.DELIVERYNOTE_ID);
+            ViewBag.delivery=delivery.DELIVERYFEE;
             db.SaveChanges();
             return View(oRDER);
+        }
+        // GET: ORDERs/MarkReceive/[OrderID]
+        public ActionResult MarkReceive(string OrderID)
+        {
+            var OrderData=db.ORDER.Find(OrderID);
+            OrderData.ORDERSTATUS = "Đã nhận được hàng";
+
+            foreach(var OrderDetailData in db.ORDER_DETAIL.ToList())
+            {
+                if(OrderDetailData.ORDERID.Equals(OrderID))
+                {
+                    foreach(var ProductData in db.PRODUCT.ToList())
+                    {
+                        if (ProductData.PRODUCTID.Equals(OrderDetailData.PRODUCTID))
+                        {
+                            ProductData.HASSOLD += OrderDetailData.BUYQUANTITY;
+                            ProductData.PROQUANTITY -= OrderDetailData.BUYQUANTITY;
+                        }
+                    }  
+                }
+
+                //var ProductData = db.PRODUCT.Find(OrderDetailData.PRODUCTID);
+                //ProductData.HASSOLD += OrderDetailData.BUYQUANTITY;
+                //ProductData.PROQUANTITY -= OrderDetailData.BUYQUANTITY;
+            }    
+            db.SaveChanges();
+            ViewBag.Mess = "đánh dấu nhận hàng thành công";
+            return View();
         }
 
         // GET: ORDERs/Create

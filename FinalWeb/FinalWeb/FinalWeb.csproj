@@ -314,6 +314,7 @@
     <Content Include="Views\Home\AddtoCart.cshtml" />
     <Content Include="Views\Home\CheckOut.cshtml" />
     <Content Include="Views\ORDERs\PaymentConfirm.cshtml" />
+    <Content Include="Views\ORDERs\MarkReceive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
