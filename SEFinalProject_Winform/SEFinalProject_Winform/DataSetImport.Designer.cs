@@ -40,7 +40,7 @@ namespace SEFinalProject_Winform {
         
         private global::System.Data.DataRelation relationFK_IMPORT_D_RELATIONS_PRODUCT;
         
-        private global::System.Data.DataRelation relationFK_IMPORT_RELATIONS_ACCOUNTA1;
+        private global::System.Data.DataRelation relationFK_IMPORT_RELATIONS_ACCOUNTA2;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -301,7 +301,7 @@ namespace SEFinalProject_Winform {
             this.relationFK_IMPORT_D_RELATIONS_IMPORT = this.Relations["FK_IMPORT_D_RELATIONS_IMPORT"];
             this.relationFK_IMPORT_RELATIONS_ACCOUNTA = this.Relations["FK_IMPORT_RELATIONS_ACCOUNTA"];
             this.relationFK_IMPORT_D_RELATIONS_PRODUCT = this.Relations["FK_IMPORT_D_RELATIONS_PRODUCT"];
-            this.relationFK_IMPORT_RELATIONS_ACCOUNTA1 = this.Relations["FK_IMPORT_RELATIONS_ACCOUNTA1"];
+            this.relationFK_IMPORT_RELATIONS_ACCOUNTA2 = this.Relations["FK_IMPORT_RELATIONS_ACCOUNTA2"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -334,10 +334,10 @@ namespace SEFinalProject_Winform {
                         this.tablePRODUCT.PRODUCTIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableIMPORT_DETAIL.PRODUCTIDColumn}, false);
             this.Relations.Add(this.relationFK_IMPORT_D_RELATIONS_PRODUCT);
-            this.relationFK_IMPORT_RELATIONS_ACCOUNTA1 = new global::System.Data.DataRelation("FK_IMPORT_RELATIONS_ACCOUNTA1", new global::System.Data.DataColumn[] {
+            this.relationFK_IMPORT_RELATIONS_ACCOUNTA2 = new global::System.Data.DataRelation("FK_IMPORT_RELATIONS_ACCOUNTA2", new global::System.Data.DataColumn[] {
                         this.tableDataTable1.ACCOUNTIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableIMPORT.ACCOUNTIDColumn}, false);
-            this.Relations.Add(this.relationFK_IMPORT_RELATIONS_ACCOUNTA1);
+            this.Relations.Add(this.relationFK_IMPORT_RELATIONS_ACCOUNTA2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1627,31 +1627,11 @@ namespace SEFinalProject_Winform {
             
             private global::System.Data.DataColumn columnAGENTNAME;
             
-            private global::System.Data.DataColumn columnAGENTPHONE;
-            
-            private global::System.Data.DataColumn columnAGENTADDRESS;
-            
             private global::System.Data.DataColumn columnExpr3;
             
             private global::System.Data.DataColumn columnPRONAME;
             
             private global::System.Data.DataColumn columnPROPRICE;
-            
-            private global::System.Data.DataColumn columnPROORIGIN;
-            
-            private global::System.Data.DataColumn columnPROQUANTITY;
-            
-            private global::System.Data.DataColumn columnPROTYPE;
-            
-            private global::System.Data.DataColumn columnPROBRAND;
-            
-            private global::System.Data.DataColumn columnPRODESCRIPTION;
-            
-            private global::System.Data.DataColumn columnUSEDATE;
-            
-            private global::System.Data.DataColumn columnHASSOLD;
-            
-            private global::System.Data.DataColumn columnPROIMAGE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1760,22 +1740,6 @@ namespace SEFinalProject_Winform {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AGENTPHONEColumn {
-                get {
-                    return this.columnAGENTPHONE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AGENTADDRESSColumn {
-                get {
-                    return this.columnAGENTADDRESS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Expr3Column {
                 get {
                     return this.columnExpr3;
@@ -1795,70 +1759,6 @@ namespace SEFinalProject_Winform {
             public global::System.Data.DataColumn PROPRICEColumn {
                 get {
                     return this.columnPROPRICE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PROORIGINColumn {
-                get {
-                    return this.columnPROORIGIN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PROQUANTITYColumn {
-                get {
-                    return this.columnPROQUANTITY;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PROTYPEColumn {
-                get {
-                    return this.columnPROTYPE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PROBRANDColumn {
-                get {
-                    return this.columnPROBRAND;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PRODESCRIPTIONColumn {
-                get {
-                    return this.columnPRODESCRIPTION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn USEDATEColumn {
-                get {
-                    return this.columnUSEDATE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HASSOLDColumn {
-                get {
-                    return this.columnHASSOLD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PROIMAGEColumn {
-                get {
-                    return this.columnPROIMAGE;
                 }
             }
             
@@ -1899,29 +1799,7 @@ namespace SEFinalProject_Winform {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(
-                        string IMPORTID, 
-                        string ACCOUNTID, 
-                        System.DateTime IMPORTDATE, 
-                        string IDETAIL_ID, 
-                        string PRODUCTID, 
-                        string Expr1, 
-                        int IMPORTQUANTITY, 
-                        string Expr2, 
-                        string AGENTNAME, 
-                        string AGENTPHONE, 
-                        string AGENTADDRESS, 
-                        string Expr3, 
-                        string PRONAME, 
-                        decimal PROPRICE, 
-                        string PROORIGIN, 
-                        int PROQUANTITY, 
-                        string PROTYPE, 
-                        string PROBRAND, 
-                        string PRODESCRIPTION, 
-                        System.DateTime USEDATE, 
-                        int HASSOLD, 
-                        string PROIMAGE) {
+            public DataTable1Row AddDataTable1Row(string IMPORTID, string ACCOUNTID, System.DateTime IMPORTDATE, string IDETAIL_ID, string PRODUCTID, string Expr1, int IMPORTQUANTITY, string Expr2, string AGENTNAME, string Expr3, string PRONAME, decimal PROPRICE) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IMPORTID,
@@ -1933,19 +1811,9 @@ namespace SEFinalProject_Winform {
                         IMPORTQUANTITY,
                         Expr2,
                         AGENTNAME,
-                        AGENTPHONE,
-                        AGENTADDRESS,
                         Expr3,
                         PRONAME,
-                        PROPRICE,
-                        PROORIGIN,
-                        PROQUANTITY,
-                        PROTYPE,
-                        PROBRAND,
-                        PRODESCRIPTION,
-                        USEDATE,
-                        HASSOLD,
-                        PROIMAGE};
+                        PROPRICE};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -1987,19 +1855,9 @@ namespace SEFinalProject_Winform {
                 this.columnIMPORTQUANTITY = base.Columns["IMPORTQUANTITY"];
                 this.columnExpr2 = base.Columns["Expr2"];
                 this.columnAGENTNAME = base.Columns["AGENTNAME"];
-                this.columnAGENTPHONE = base.Columns["AGENTPHONE"];
-                this.columnAGENTADDRESS = base.Columns["AGENTADDRESS"];
                 this.columnExpr3 = base.Columns["Expr3"];
                 this.columnPRONAME = base.Columns["PRONAME"];
                 this.columnPROPRICE = base.Columns["PROPRICE"];
-                this.columnPROORIGIN = base.Columns["PROORIGIN"];
-                this.columnPROQUANTITY = base.Columns["PROQUANTITY"];
-                this.columnPROTYPE = base.Columns["PROTYPE"];
-                this.columnPROBRAND = base.Columns["PROBRAND"];
-                this.columnPRODESCRIPTION = base.Columns["PRODESCRIPTION"];
-                this.columnUSEDATE = base.Columns["USEDATE"];
-                this.columnHASSOLD = base.Columns["HASSOLD"];
-                this.columnPROIMAGE = base.Columns["PROIMAGE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2023,32 +1881,12 @@ namespace SEFinalProject_Winform {
                 base.Columns.Add(this.columnExpr2);
                 this.columnAGENTNAME = new global::System.Data.DataColumn("AGENTNAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAGENTNAME);
-                this.columnAGENTPHONE = new global::System.Data.DataColumn("AGENTPHONE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAGENTPHONE);
-                this.columnAGENTADDRESS = new global::System.Data.DataColumn("AGENTADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAGENTADDRESS);
                 this.columnExpr3 = new global::System.Data.DataColumn("Expr3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpr3);
                 this.columnPRONAME = new global::System.Data.DataColumn("PRONAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRONAME);
                 this.columnPROPRICE = new global::System.Data.DataColumn("PROPRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROPRICE);
-                this.columnPROORIGIN = new global::System.Data.DataColumn("PROORIGIN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROORIGIN);
-                this.columnPROQUANTITY = new global::System.Data.DataColumn("PROQUANTITY", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROQUANTITY);
-                this.columnPROTYPE = new global::System.Data.DataColumn("PROTYPE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROTYPE);
-                this.columnPROBRAND = new global::System.Data.DataColumn("PROBRAND", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROBRAND);
-                this.columnPRODESCRIPTION = new global::System.Data.DataColumn("PRODESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRODESCRIPTION);
-                this.columnUSEDATE = new global::System.Data.DataColumn("USEDATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUSEDATE);
-                this.columnHASSOLD = new global::System.Data.DataColumn("HASSOLD", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHASSOLD);
-                this.columnPROIMAGE = new global::System.Data.DataColumn("PROIMAGE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROIMAGE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIMPORTID,
                                 this.columnIDETAIL_ID,
@@ -2064,16 +1902,9 @@ namespace SEFinalProject_Winform {
                 this.columnExpr2.AllowDBNull = false;
                 this.columnExpr2.MaxLength = 5;
                 this.columnAGENTNAME.MaxLength = 50;
-                this.columnAGENTPHONE.MaxLength = 10;
-                this.columnAGENTADDRESS.MaxLength = 100;
                 this.columnExpr3.AllowDBNull = false;
                 this.columnExpr3.MaxLength = 5;
                 this.columnPRONAME.MaxLength = 50;
-                this.columnPROORIGIN.MaxLength = 10;
-                this.columnPROTYPE.MaxLength = 10;
-                this.columnPROBRAND.MaxLength = 20;
-                this.columnPRODESCRIPTION.MaxLength = 400;
-                this.columnPROIMAGE.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2272,10 +2103,10 @@ namespace SEFinalProject_Winform {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1Row DataTable1Row {
                 get {
-                    return ((DataTable1Row)(this.GetParentRow(this.Table.ParentRelations["FK_IMPORT_RELATIONS_ACCOUNTA1"])));
+                    return ((DataTable1Row)(this.GetParentRow(this.Table.ParentRelations["FK_IMPORT_RELATIONS_ACCOUNTA2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_IMPORT_RELATIONS_ACCOUNTA1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_IMPORT_RELATIONS_ACCOUNTA2"]);
                 }
             }
             
@@ -2750,38 +2581,6 @@ namespace SEFinalProject_Winform {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AGENTPHONE {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.AGENTPHONEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AGENTPHONE\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.AGENTPHONEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AGENTADDRESS {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.AGENTADDRESSColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AGENTADDRESS\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.AGENTADDRESSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Expr3 {
                 get {
                     return ((string)(this[this.tableDataTable1.Expr3Column]));
@@ -2820,134 +2619,6 @@ namespace SEFinalProject_Winform {
                 }
                 set {
                     this[this.tableDataTable1.PROPRICEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PROORIGIN {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.PROORIGINColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROORIGIN\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PROORIGINColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PROQUANTITY {
-                get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.PROQUANTITYColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROQUANTITY\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PROQUANTITYColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PROTYPE {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.PROTYPEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROTYPE\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PROTYPEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PROBRAND {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.PROBRANDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROBRAND\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PROBRANDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PRODESCRIPTION {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.PRODESCRIPTIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PRODESCRIPTION\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PRODESCRIPTIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime USEDATE {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.USEDATEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'USEDATE\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.USEDATEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int HASSOLD {
-                get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.HASSOLDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HASSOLD\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.HASSOLDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PROIMAGE {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.PROIMAGEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROIMAGE\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.PROIMAGEColumn] = value;
                 }
             }
             
@@ -3025,30 +2696,6 @@ namespace SEFinalProject_Winform {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAGENTPHONENull() {
-                return this.IsNull(this.tableDataTable1.AGENTPHONEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAGENTPHONENull() {
-                this[this.tableDataTable1.AGENTPHONEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAGENTADDRESSNull() {
-                return this.IsNull(this.tableDataTable1.AGENTADDRESSColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAGENTADDRESSNull() {
-                this[this.tableDataTable1.AGENTADDRESSColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPRONAMENull() {
                 return this.IsNull(this.tableDataTable1.PRONAMEColumn);
             }
@@ -3073,108 +2720,12 @@ namespace SEFinalProject_Winform {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPROORIGINNull() {
-                return this.IsNull(this.tableDataTable1.PROORIGINColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPROORIGINNull() {
-                this[this.tableDataTable1.PROORIGINColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPROQUANTITYNull() {
-                return this.IsNull(this.tableDataTable1.PROQUANTITYColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPROQUANTITYNull() {
-                this[this.tableDataTable1.PROQUANTITYColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPROTYPENull() {
-                return this.IsNull(this.tableDataTable1.PROTYPEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPROTYPENull() {
-                this[this.tableDataTable1.PROTYPEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPROBRANDNull() {
-                return this.IsNull(this.tableDataTable1.PROBRANDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPROBRANDNull() {
-                this[this.tableDataTable1.PROBRANDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPRODESCRIPTIONNull() {
-                return this.IsNull(this.tableDataTable1.PRODESCRIPTIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPRODESCRIPTIONNull() {
-                this[this.tableDataTable1.PRODESCRIPTIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUSEDATENull() {
-                return this.IsNull(this.tableDataTable1.USEDATEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUSEDATENull() {
-                this[this.tableDataTable1.USEDATEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsHASSOLDNull() {
-                return this.IsNull(this.tableDataTable1.HASSOLDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetHASSOLDNull() {
-                this[this.tableDataTable1.HASSOLDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPROIMAGENull() {
-                return this.IsNull(this.tableDataTable1.PROIMAGEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPROIMAGENull() {
-                this[this.tableDataTable1.PROIMAGEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public IMPORTRow[] GetIMPORTRows() {
-                if ((this.Table.ChildRelations["FK_IMPORT_RELATIONS_ACCOUNTA1"] == null)) {
+                if ((this.Table.ChildRelations["FK_IMPORT_RELATIONS_ACCOUNTA2"] == null)) {
                     return new IMPORTRow[0];
                 }
                 else {
-                    return ((IMPORTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_IMPORT_RELATIONS_ACCOUNTA1"])));
+                    return ((IMPORTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_IMPORT_RELATIONS_ACCOUNTA2"])));
                 }
             }
         }
@@ -5011,19 +4562,9 @@ SELECT PRODUCTID, PRONAME, PROPRICE FROM PRODUCT WHERE (PRODUCTID = @PRODUCTID)"
             tableMapping.ColumnMappings.Add("IMPORTQUANTITY", "IMPORTQUANTITY");
             tableMapping.ColumnMappings.Add("Expr2", "Expr2");
             tableMapping.ColumnMappings.Add("AGENTNAME", "AGENTNAME");
-            tableMapping.ColumnMappings.Add("AGENTPHONE", "AGENTPHONE");
-            tableMapping.ColumnMappings.Add("AGENTADDRESS", "AGENTADDRESS");
             tableMapping.ColumnMappings.Add("Expr3", "Expr3");
             tableMapping.ColumnMappings.Add("PRONAME", "PRONAME");
             tableMapping.ColumnMappings.Add("PROPRICE", "PROPRICE");
-            tableMapping.ColumnMappings.Add("PROORIGIN", "PROORIGIN");
-            tableMapping.ColumnMappings.Add("PROQUANTITY", "PROQUANTITY");
-            tableMapping.ColumnMappings.Add("PROTYPE", "PROTYPE");
-            tableMapping.ColumnMappings.Add("PROBRAND", "PROBRAND");
-            tableMapping.ColumnMappings.Add("PRODESCRIPTION", "PRODESCRIPTION");
-            tableMapping.ColumnMappings.Add("USEDATE", "USEDATE");
-            tableMapping.ColumnMappings.Add("HASSOLD", "HASSOLD");
-            tableMapping.ColumnMappings.Add("PROIMAGE", "PROIMAGE");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5041,8 +4582,7 @@ SELECT PRODUCTID, PRONAME, PROPRICE FROM PRODUCT WHERE (PRODUCTID = @PRODUCTID)"
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        IMPORT.IMPORTID, IMPORT.ACCOUNTID, IMPORT.IMPORTDATE, IMPORT_DETAIL.IDETAIL_ID, IMPORT_DETAIL.PRODUCTID, IMPORT_DETAIL.IMPORTID AS Expr1, IMPORT_DETAIL.IMPORTQUANTITY, 
-                         ACCOUNTANT.ACCOUNTID AS Expr2, ACCOUNTANT.AGENTNAME, ACCOUNTANT.AGENTPHONE, ACCOUNTANT.AGENTADDRESS, PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE, 
-                         PRODUCT.PROORIGIN, PRODUCT.PROQUANTITY, PRODUCT.PROTYPE, PRODUCT.PROBRAND, PRODUCT.PRODESCRIPTION, PRODUCT.USEDATE, PRODUCT.HASSOLD, PRODUCT.PROIMAGE
+                         ACCOUNTANT.ACCOUNTID AS Expr2, ACCOUNTANT.AGENTNAME, PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE
 FROM            IMPORT CROSS JOIN
                          IMPORT_DETAIL CROSS JOIN
                          ACCOUNTANT CROSS JOIN

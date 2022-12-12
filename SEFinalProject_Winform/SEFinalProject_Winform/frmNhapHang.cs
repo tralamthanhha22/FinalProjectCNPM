@@ -402,7 +402,8 @@ namespace SEFinalProject_Winform
 
         private void createPDFReport(object sender, EventArgs e)
         {
-            
+            frmPreviewReportPrint frmImportPrint = new frmPreviewReportPrint("Import", tbImportID.Text);
+            frmImportPrint.ShowDialog();
 
         }
 

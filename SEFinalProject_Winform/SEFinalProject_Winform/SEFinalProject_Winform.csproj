@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetImport.cs">
+      <DependentUpon>DataSetImport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetImport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,11 +113,11 @@
     <Compile Include="frmOrderManager.Designer.cs">
       <DependentUpon>frmOrderManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPreviewImportPrint.cs">
+    <Compile Include="frmPreviewReportPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPreviewImportPrint.Designer.cs">
-      <DependentUpon>frmPreviewImportPrint.cs</DependentUpon>
+    <Compile Include="frmPreviewReportPrint.Designer.cs">
+      <DependentUpon>frmPreviewReportPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductManager.cs">
       <SubType>Form</SubType>
@@ -155,8 +158,8 @@
     <EmbeddedResource Include="frmOrderManager.resx">
       <DependentUpon>frmOrderManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPreviewImportPrint.resx">
-      <DependentUpon>frmPreviewImportPrint.cs</DependentUpon>
+    <EmbeddedResource Include="frmPreviewReportPrint.resx">
+      <DependentUpon>frmPreviewReportPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductManager.resx">
       <DependentUpon>frmProductManager.cs</DependentUpon>

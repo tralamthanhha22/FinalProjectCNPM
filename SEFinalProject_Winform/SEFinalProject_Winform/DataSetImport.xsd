@@ -245,8 +245,7 @@ SELECT PRODUCTID, PRONAME, PROPRICE FROM PRODUCT WHERE (PRODUCTID = @PRODUCTID)<
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        IMPORT.IMPORTID, IMPORT.ACCOUNTID, IMPORT.IMPORTDATE, IMPORT_DETAIL.IDETAIL_ID, IMPORT_DETAIL.PRODUCTID, IMPORT_DETAIL.IMPORTID AS Expr1, IMPORT_DETAIL.IMPORTQUANTITY, 
-                         ACCOUNTANT.ACCOUNTID AS Expr2, ACCOUNTANT.AGENTNAME, ACCOUNTANT.AGENTPHONE, ACCOUNTANT.AGENTADDRESS, PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE, 
-                         PRODUCT.PROORIGIN, PRODUCT.PROQUANTITY, PRODUCT.PROTYPE, PRODUCT.PROBRAND, PRODUCT.PRODESCRIPTION, PRODUCT.USEDATE, PRODUCT.HASSOLD, PRODUCT.PROIMAGE
+                         ACCOUNTANT.ACCOUNTID AS Expr2, ACCOUNTANT.AGENTNAME, PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE
 FROM            IMPORT CROSS JOIN
                          IMPORT_DETAIL CROSS JOIN
                          ACCOUNTANT CROSS JOIN
@@ -266,19 +265,9 @@ FROM            IMPORT CROSS JOIN
               <Mapping SourceColumn="IMPORTQUANTITY" DataSetColumn="IMPORTQUANTITY" />
               <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
               <Mapping SourceColumn="AGENTNAME" DataSetColumn="AGENTNAME" />
-              <Mapping SourceColumn="AGENTPHONE" DataSetColumn="AGENTPHONE" />
-              <Mapping SourceColumn="AGENTADDRESS" DataSetColumn="AGENTADDRESS" />
               <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
               <Mapping SourceColumn="PRONAME" DataSetColumn="PRONAME" />
               <Mapping SourceColumn="PROPRICE" DataSetColumn="PROPRICE" />
-              <Mapping SourceColumn="PROORIGIN" DataSetColumn="PROORIGIN" />
-              <Mapping SourceColumn="PROQUANTITY" DataSetColumn="PROQUANTITY" />
-              <Mapping SourceColumn="PROTYPE" DataSetColumn="PROTYPE" />
-              <Mapping SourceColumn="PROBRAND" DataSetColumn="PROBRAND" />
-              <Mapping SourceColumn="PRODESCRIPTION" DataSetColumn="PRODESCRIPTION" />
-              <Mapping SourceColumn="USEDATE" DataSetColumn="USEDATE" />
-              <Mapping SourceColumn="HASSOLD" DataSetColumn="HASSOLD" />
-              <Mapping SourceColumn="PROIMAGE" DataSetColumn="PROIMAGE" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -287,69 +276,69 @@ FROM            IMPORT CROSS JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSetImport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetImport" msprop:Generator_DataSetName="DataSetImport">
+  <xs:element name="DataSetImport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSetImport" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetImport">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IMPORT" msprop:Generator_RowEvHandlerName="IMPORTRowChangeEventHandler" msprop:Generator_RowDeletedName="IMPORTRowDeleted" msprop:Generator_RowDeletingName="IMPORTRowDeleting" msprop:Generator_RowEvArgName="IMPORTRowChangeEvent" msprop:Generator_TablePropName="IMPORT" msprop:Generator_RowChangedName="IMPORTRowChanged" msprop:Generator_RowChangingName="IMPORTRowChanging" msprop:Generator_TableClassName="IMPORTDataTable" msprop:Generator_RowClassName="IMPORTRow" msprop:Generator_TableVarName="tableIMPORT" msprop:Generator_UserTableName="IMPORT">
+        <xs:element name="IMPORT" msprop:Generator_RowClassName="IMPORTRow" msprop:Generator_RowEvHandlerName="IMPORTRowChangeEventHandler" msprop:Generator_RowDeletedName="IMPORTRowDeleted" msprop:Generator_RowDeletingName="IMPORTRowDeleting" msprop:Generator_RowEvArgName="IMPORTRowChangeEvent" msprop:Generator_TablePropName="IMPORT" msprop:Generator_RowChangedName="IMPORTRowChanged" msprop:Generator_UserTableName="IMPORT" msprop:Generator_RowChangingName="IMPORTRowChanging" msprop:Generator_TableClassName="IMPORTDataTable" msprop:Generator_TableVarName="tableIMPORT">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IMPORTID" msprop:Generator_ColumnPropNameInRow="IMPORTID" msprop:Generator_ColumnPropNameInTable="IMPORTIDColumn" msprop:Generator_ColumnVarNameInTable="columnIMPORTID" msprop:Generator_UserColumnName="IMPORTID">
+              <xs:element name="IMPORTID" msprop:Generator_UserColumnName="IMPORTID" msprop:Generator_ColumnPropNameInTable="IMPORTIDColumn" msprop:Generator_ColumnPropNameInRow="IMPORTID" msprop:Generator_ColumnVarNameInTable="columnIMPORTID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ACCOUNTID" msprop:Generator_ColumnPropNameInRow="ACCOUNTID" msprop:Generator_ColumnPropNameInTable="ACCOUNTIDColumn" msprop:Generator_ColumnVarNameInTable="columnACCOUNTID" msprop:Generator_UserColumnName="ACCOUNTID" minOccurs="0">
+              <xs:element name="ACCOUNTID" msprop:Generator_UserColumnName="ACCOUNTID" msprop:Generator_ColumnPropNameInTable="ACCOUNTIDColumn" msprop:Generator_ColumnPropNameInRow="ACCOUNTID" msprop:Generator_ColumnVarNameInTable="columnACCOUNTID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IMPORTDATE" msprop:Generator_ColumnPropNameInRow="IMPORTDATE" msprop:Generator_ColumnPropNameInTable="IMPORTDATEColumn" msprop:Generator_ColumnVarNameInTable="columnIMPORTDATE" msprop:Generator_UserColumnName="IMPORTDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IMPORTDATE" msprop:Generator_UserColumnName="IMPORTDATE" msprop:Generator_ColumnPropNameInTable="IMPORTDATEColumn" msprop:Generator_ColumnPropNameInRow="IMPORTDATE" msprop:Generator_ColumnVarNameInTable="columnIMPORTDATE" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="IMPORT_DETAIL" msprop:Generator_RowEvHandlerName="IMPORT_DETAILRowChangeEventHandler" msprop:Generator_RowDeletedName="IMPORT_DETAILRowDeleted" msprop:Generator_RowDeletingName="IMPORT_DETAILRowDeleting" msprop:Generator_RowEvArgName="IMPORT_DETAILRowChangeEvent" msprop:Generator_TablePropName="IMPORT_DETAIL" msprop:Generator_RowChangedName="IMPORT_DETAILRowChanged" msprop:Generator_RowChangingName="IMPORT_DETAILRowChanging" msprop:Generator_TableClassName="IMPORT_DETAILDataTable" msprop:Generator_RowClassName="IMPORT_DETAILRow" msprop:Generator_TableVarName="tableIMPORT_DETAIL" msprop:Generator_UserTableName="IMPORT_DETAIL">
+        <xs:element name="IMPORT_DETAIL" msprop:Generator_RowClassName="IMPORT_DETAILRow" msprop:Generator_RowEvHandlerName="IMPORT_DETAILRowChangeEventHandler" msprop:Generator_RowDeletedName="IMPORT_DETAILRowDeleted" msprop:Generator_RowDeletingName="IMPORT_DETAILRowDeleting" msprop:Generator_RowEvArgName="IMPORT_DETAILRowChangeEvent" msprop:Generator_TablePropName="IMPORT_DETAIL" msprop:Generator_RowChangedName="IMPORT_DETAILRowChanged" msprop:Generator_UserTableName="IMPORT_DETAIL" msprop:Generator_RowChangingName="IMPORT_DETAILRowChanging" msprop:Generator_TableClassName="IMPORT_DETAILDataTable" msprop:Generator_TableVarName="tableIMPORT_DETAIL">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IDETAIL_ID" msprop:Generator_ColumnPropNameInRow="IDETAIL_ID" msprop:Generator_ColumnPropNameInTable="IDETAIL_IDColumn" msprop:Generator_ColumnVarNameInTable="columnIDETAIL_ID" msprop:Generator_UserColumnName="IDETAIL_ID">
+              <xs:element name="IDETAIL_ID" msprop:Generator_UserColumnName="IDETAIL_ID" msprop:Generator_ColumnPropNameInTable="IDETAIL_IDColumn" msprop:Generator_ColumnPropNameInRow="IDETAIL_ID" msprop:Generator_ColumnVarNameInTable="columnIDETAIL_ID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PRODUCTID" msprop:Generator_ColumnPropNameInRow="PRODUCTID" msprop:Generator_ColumnPropNameInTable="PRODUCTIDColumn" msprop:Generator_ColumnVarNameInTable="columnPRODUCTID" msprop:Generator_UserColumnName="PRODUCTID" minOccurs="0">
+              <xs:element name="PRODUCTID" msprop:Generator_UserColumnName="PRODUCTID" msprop:Generator_ColumnPropNameInTable="PRODUCTIDColumn" msprop:Generator_ColumnPropNameInRow="PRODUCTID" msprop:Generator_ColumnVarNameInTable="columnPRODUCTID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IMPORTID" msprop:Generator_ColumnPropNameInRow="IMPORTID" msprop:Generator_ColumnPropNameInTable="IMPORTIDColumn" msprop:Generator_ColumnVarNameInTable="columnIMPORTID" msprop:Generator_UserColumnName="IMPORTID" minOccurs="0">
+              <xs:element name="IMPORTID" msprop:Generator_UserColumnName="IMPORTID" msprop:Generator_ColumnPropNameInTable="IMPORTIDColumn" msprop:Generator_ColumnPropNameInRow="IMPORTID" msprop:Generator_ColumnVarNameInTable="columnIMPORTID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IMPORTQUANTITY" msprop:Generator_ColumnPropNameInRow="IMPORTQUANTITY" msprop:Generator_ColumnPropNameInTable="IMPORTQUANTITYColumn" msprop:Generator_ColumnVarNameInTable="columnIMPORTQUANTITY" msprop:Generator_UserColumnName="IMPORTQUANTITY" type="xs:int" minOccurs="0" />
+              <xs:element name="IMPORTQUANTITY" msprop:Generator_UserColumnName="IMPORTQUANTITY" msprop:Generator_ColumnPropNameInTable="IMPORTQUANTITYColumn" msprop:Generator_ColumnPropNameInRow="IMPORTQUANTITY" msprop:Generator_ColumnVarNameInTable="columnIMPORTQUANTITY" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ACCOUNTANT" msprop:Generator_RowEvHandlerName="ACCOUNTANTRowChangeEventHandler" msprop:Generator_RowDeletedName="ACCOUNTANTRowDeleted" msprop:Generator_RowDeletingName="ACCOUNTANTRowDeleting" msprop:Generator_RowEvArgName="ACCOUNTANTRowChangeEvent" msprop:Generator_TablePropName="ACCOUNTANT" msprop:Generator_RowChangedName="ACCOUNTANTRowChanged" msprop:Generator_RowChangingName="ACCOUNTANTRowChanging" msprop:Generator_TableClassName="ACCOUNTANTDataTable" msprop:Generator_RowClassName="ACCOUNTANTRow" msprop:Generator_TableVarName="tableACCOUNTANT" msprop:Generator_UserTableName="ACCOUNTANT">
+        <xs:element name="ACCOUNTANT" msprop:Generator_RowClassName="ACCOUNTANTRow" msprop:Generator_RowEvHandlerName="ACCOUNTANTRowChangeEventHandler" msprop:Generator_RowDeletedName="ACCOUNTANTRowDeleted" msprop:Generator_RowDeletingName="ACCOUNTANTRowDeleting" msprop:Generator_RowEvArgName="ACCOUNTANTRowChangeEvent" msprop:Generator_TablePropName="ACCOUNTANT" msprop:Generator_RowChangedName="ACCOUNTANTRowChanged" msprop:Generator_UserTableName="ACCOUNTANT" msprop:Generator_RowChangingName="ACCOUNTANTRowChanging" msprop:Generator_TableClassName="ACCOUNTANTDataTable" msprop:Generator_TableVarName="tableACCOUNTANT">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ACCOUNTID" msprop:Generator_ColumnPropNameInRow="ACCOUNTID" msprop:Generator_ColumnPropNameInTable="ACCOUNTIDColumn" msprop:Generator_ColumnVarNameInTable="columnACCOUNTID" msprop:Generator_UserColumnName="ACCOUNTID">
+              <xs:element name="ACCOUNTID" msprop:Generator_UserColumnName="ACCOUNTID" msprop:Generator_ColumnPropNameInTable="ACCOUNTIDColumn" msprop:Generator_ColumnPropNameInRow="ACCOUNTID" msprop:Generator_ColumnVarNameInTable="columnACCOUNTID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AGENTNAME" msprop:Generator_ColumnPropNameInRow="AGENTNAME" msprop:Generator_ColumnPropNameInTable="AGENTNAMEColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTNAME" msprop:Generator_UserColumnName="AGENTNAME" minOccurs="0">
+              <xs:element name="AGENTNAME" msprop:Generator_UserColumnName="AGENTNAME" msprop:Generator_ColumnPropNameInTable="AGENTNAMEColumn" msprop:Generator_ColumnPropNameInRow="AGENTNAME" msprop:Generator_ColumnVarNameInTable="columnAGENTNAME" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -359,24 +348,24 @@ FROM            IMPORT CROSS JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PRODUCT" msprop:Generator_RowEvHandlerName="PRODUCTRowChangeEventHandler" msprop:Generator_RowDeletedName="PRODUCTRowDeleted" msprop:Generator_RowDeletingName="PRODUCTRowDeleting" msprop:Generator_RowEvArgName="PRODUCTRowChangeEvent" msprop:Generator_TablePropName="PRODUCT" msprop:Generator_RowChangedName="PRODUCTRowChanged" msprop:Generator_RowChangingName="PRODUCTRowChanging" msprop:Generator_TableClassName="PRODUCTDataTable" msprop:Generator_RowClassName="PRODUCTRow" msprop:Generator_TableVarName="tablePRODUCT" msprop:Generator_UserTableName="PRODUCT">
+        <xs:element name="PRODUCT" msprop:Generator_RowClassName="PRODUCTRow" msprop:Generator_RowEvHandlerName="PRODUCTRowChangeEventHandler" msprop:Generator_RowDeletedName="PRODUCTRowDeleted" msprop:Generator_RowDeletingName="PRODUCTRowDeleting" msprop:Generator_RowEvArgName="PRODUCTRowChangeEvent" msprop:Generator_TablePropName="PRODUCT" msprop:Generator_RowChangedName="PRODUCTRowChanged" msprop:Generator_UserTableName="PRODUCT" msprop:Generator_RowChangingName="PRODUCTRowChanging" msprop:Generator_TableClassName="PRODUCTDataTable" msprop:Generator_TableVarName="tablePRODUCT">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PRODUCTID" msprop:Generator_ColumnPropNameInRow="PRODUCTID" msprop:Generator_ColumnPropNameInTable="PRODUCTIDColumn" msprop:Generator_ColumnVarNameInTable="columnPRODUCTID" msprop:Generator_UserColumnName="PRODUCTID">
+              <xs:element name="PRODUCTID" msprop:Generator_UserColumnName="PRODUCTID" msprop:Generator_ColumnPropNameInTable="PRODUCTIDColumn" msprop:Generator_ColumnPropNameInRow="PRODUCTID" msprop:Generator_ColumnVarNameInTable="columnPRODUCTID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PRONAME" msprop:Generator_ColumnPropNameInRow="PRONAME" msprop:Generator_ColumnPropNameInTable="PRONAMEColumn" msprop:Generator_ColumnVarNameInTable="columnPRONAME" msprop:Generator_UserColumnName="PRONAME" minOccurs="0">
+              <xs:element name="PRONAME" msprop:Generator_UserColumnName="PRONAME" msprop:Generator_ColumnPropNameInTable="PRONAMEColumn" msprop:Generator_ColumnPropNameInRow="PRONAME" msprop:Generator_ColumnVarNameInTable="columnPRONAME" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PROPRICE" msprop:Generator_ColumnPropNameInRow="PROPRICE" msprop:Generator_ColumnPropNameInTable="PROPRICEColumn" msprop:Generator_ColumnVarNameInTable="columnPROPRICE" msprop:Generator_UserColumnName="PROPRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PROPRICE" msprop:Generator_UserColumnName="PROPRICE" msprop:Generator_ColumnPropNameInTable="PROPRICEColumn" msprop:Generator_ColumnPropNameInRow="PROPRICE" msprop:Generator_ColumnVarNameInTable="columnPROPRICE" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -434,20 +423,6 @@ FROM            IMPORT CROSS JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AGENTPHONE" msprop:Generator_ColumnPropNameInRow="AGENTPHONE" msprop:Generator_ColumnPropNameInTable="AGENTPHONEColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTPHONE" msprop:Generator_UserColumnName="AGENTPHONE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="AGENTADDRESS" msprop:Generator_ColumnPropNameInRow="AGENTADDRESS" msprop:Generator_ColumnPropNameInTable="AGENTADDRESSColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTADDRESS" msprop:Generator_UserColumnName="AGENTADDRESS" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Expr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_UserColumnName="Expr3">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -463,44 +438,6 @@ FROM            IMPORT CROSS JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="PROPRICE" msprop:Generator_ColumnPropNameInRow="PROPRICE" msprop:Generator_ColumnPropNameInTable="PROPRICEColumn" msprop:Generator_ColumnVarNameInTable="columnPROPRICE" msprop:Generator_UserColumnName="PROPRICE" type="xs:decimal" minOccurs="0" />
-              <xs:element name="PROORIGIN" msprop:Generator_ColumnPropNameInRow="PROORIGIN" msprop:Generator_ColumnPropNameInTable="PROORIGINColumn" msprop:Generator_ColumnVarNameInTable="columnPROORIGIN" msprop:Generator_UserColumnName="PROORIGIN" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PROQUANTITY" msprop:Generator_ColumnPropNameInRow="PROQUANTITY" msprop:Generator_ColumnPropNameInTable="PROQUANTITYColumn" msprop:Generator_ColumnVarNameInTable="columnPROQUANTITY" msprop:Generator_UserColumnName="PROQUANTITY" type="xs:int" minOccurs="0" />
-              <xs:element name="PROTYPE" msprop:Generator_ColumnPropNameInRow="PROTYPE" msprop:Generator_ColumnPropNameInTable="PROTYPEColumn" msprop:Generator_ColumnVarNameInTable="columnPROTYPE" msprop:Generator_UserColumnName="PROTYPE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PROBRAND" msprop:Generator_ColumnPropNameInRow="PROBRAND" msprop:Generator_ColumnPropNameInTable="PROBRANDColumn" msprop:Generator_ColumnVarNameInTable="columnPROBRAND" msprop:Generator_UserColumnName="PROBRAND" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PRODESCRIPTION" msprop:Generator_ColumnPropNameInRow="PRODESCRIPTION" msprop:Generator_ColumnPropNameInTable="PRODESCRIPTIONColumn" msprop:Generator_ColumnVarNameInTable="columnPRODESCRIPTION" msprop:Generator_UserColumnName="PRODESCRIPTION" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="400" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="USEDATE" msprop:Generator_ColumnPropNameInRow="USEDATE" msprop:Generator_ColumnPropNameInTable="USEDATEColumn" msprop:Generator_ColumnVarNameInTable="columnUSEDATE" msprop:Generator_UserColumnName="USEDATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="HASSOLD" msprop:Generator_ColumnPropNameInRow="HASSOLD" msprop:Generator_ColumnPropNameInTable="HASSOLDColumn" msprop:Generator_ColumnVarNameInTable="columnHASSOLD" msprop:Generator_UserColumnName="HASSOLD" type="xs:int" minOccurs="0" />
-              <xs:element name="PROIMAGE" msprop:Generator_ColumnPropNameInRow="PROIMAGE" msprop:Generator_ColumnPropNameInTable="PROIMAGEColumn" msprop:Generator_ColumnVarNameInTable="columnPROIMAGE" msprop:Generator_UserColumnName="PROIMAGE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -532,10 +469,10 @@ FROM            IMPORT CROSS JOIN
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_IMPORT_D_RELATIONS_IMPORT" msdata:parent="IMPORT" msdata:child="IMPORT_DETAIL" msdata:parentkey="IMPORTID" msdata:childkey="IMPORTID" msprop:Generator_UserParentTable="IMPORT" msprop:Generator_UserChildTable="IMPORT_DETAIL" msprop:Generator_RelationVarName="relationFK_IMPORT_D_RELATIONS_IMPORT" msprop:Generator_ChildPropName="GetIMPORT_DETAILRows" msprop:Generator_ParentPropName="IMPORTRow" msprop:Generator_UserRelationName="FK_IMPORT_D_RELATIONS_IMPORT" />
-      <msdata:Relationship name="FK_IMPORT_RELATIONS_ACCOUNTA" msdata:parent="ACCOUNTANT" msdata:child="IMPORT" msdata:parentkey="ACCOUNTID" msdata:childkey="ACCOUNTID" msprop:Generator_UserParentTable="ACCOUNTANT" msprop:Generator_UserChildTable="IMPORT" msprop:Generator_RelationVarName="relationFK_IMPORT_RELATIONS_ACCOUNTA" msprop:Generator_UserRelationName="FK_IMPORT_RELATIONS_ACCOUNTA" msprop:Generator_ChildPropName="GetIMPORTRows" msprop:Generator_ParentPropName="ACCOUNTANTRow" />
-      <msdata:Relationship name="FK_IMPORT_D_RELATIONS_PRODUCT" msdata:parent="PRODUCT" msdata:child="IMPORT_DETAIL" msdata:parentkey="PRODUCTID" msdata:childkey="PRODUCTID" msprop:Generator_UserParentTable="PRODUCT" msprop:Generator_UserChildTable="IMPORT_DETAIL" msprop:Generator_RelationVarName="relationFK_IMPORT_D_RELATIONS_PRODUCT" msprop:Generator_UserRelationName="FK_IMPORT_D_RELATIONS_PRODUCT" msprop:Generator_ChildPropName="GetIMPORT_DETAILRows" msprop:Generator_ParentPropName="PRODUCTRow" />
-      <msdata:Relationship name="FK_IMPORT_RELATIONS_ACCOUNTA1" msdata:parent="DataTable1" msdata:child="IMPORT" msdata:parentkey="ACCOUNTID" msdata:childkey="ACCOUNTID" msprop:Generator_UserParentTable="DataTable1" msprop:Generator_UserChildTable="IMPORT" msprop:Generator_RelationVarName="relationFK_IMPORT_RELATIONS_ACCOUNTA1" msprop:Generator_UserRelationName="FK_IMPORT_RELATIONS_ACCOUNTA1" msprop:Generator_ChildPropName="GetIMPORTRows" msprop:Generator_ParentPropName="DataTable1Row" />
+      <msdata:Relationship name="FK_IMPORT_D_RELATIONS_IMPORT" msdata:parent="IMPORT" msdata:child="IMPORT_DETAIL" msdata:parentkey="IMPORTID" msdata:childkey="IMPORTID" msprop:Generator_UserParentTable="IMPORT" msprop:Generator_UserChildTable="IMPORT_DETAIL" msprop:Generator_RelationVarName="relationFK_IMPORT_D_RELATIONS_IMPORT" msprop:Generator_ChildPropName="GetIMPORT_DETAILRows" msprop:Generator_UserRelationName="FK_IMPORT_D_RELATIONS_IMPORT" msprop:Generator_ParentPropName="IMPORTRow" />
+      <msdata:Relationship name="FK_IMPORT_RELATIONS_ACCOUNTA" msdata:parent="ACCOUNTANT" msdata:child="IMPORT" msdata:parentkey="ACCOUNTID" msdata:childkey="ACCOUNTID" msprop:Generator_UserParentTable="ACCOUNTANT" msprop:Generator_UserChildTable="IMPORT" msprop:Generator_RelationVarName="relationFK_IMPORT_RELATIONS_ACCOUNTA" msprop:Generator_ChildPropName="GetIMPORTRows" msprop:Generator_ParentPropName="ACCOUNTANTRow" msprop:Generator_UserRelationName="FK_IMPORT_RELATIONS_ACCOUNTA" />
+      <msdata:Relationship name="FK_IMPORT_D_RELATIONS_PRODUCT" msdata:parent="PRODUCT" msdata:child="IMPORT_DETAIL" msdata:parentkey="PRODUCTID" msdata:childkey="PRODUCTID" msprop:Generator_UserParentTable="PRODUCT" msprop:Generator_UserChildTable="IMPORT_DETAIL" msprop:Generator_RelationVarName="relationFK_IMPORT_D_RELATIONS_PRODUCT" msprop:Generator_ChildPropName="GetIMPORT_DETAILRows" msprop:Generator_ParentPropName="PRODUCTRow" msprop:Generator_UserRelationName="FK_IMPORT_D_RELATIONS_PRODUCT" />
+      <msdata:Relationship name="FK_IMPORT_RELATIONS_ACCOUNTA2" msdata:parent="DataTable1" msdata:child="IMPORT" msdata:parentkey="ACCOUNTID" msdata:childkey="ACCOUNTID" msprop:Generator_UserParentTable="DataTable1" msprop:Generator_UserChildTable="IMPORT" msprop:Generator_RelationVarName="relationFK_IMPORT_RELATIONS_ACCOUNTA2" msprop:Generator_UserRelationName="FK_IMPORT_RELATIONS_ACCOUNTA2" msprop:Generator_ChildPropName="GetIMPORTRows" msprop:Generator_ParentPropName="DataTable1Row" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
