@@ -27,9 +27,9 @@ namespace SEFinalProject_Winform
             this.ID = ID;
         }
 
-        private DataSetImport LoadData(String importID)
+        private DataTable LoadData(String importID)
         {
-            DataSetImport dataSetImport = new DataSetImport();
+           
 
             SqlConnection conn = new SqlConnection(strConn);
             conn.Open();
@@ -42,10 +42,10 @@ namespace SEFinalProject_Winform
             SqlCommand cmd = new SqlCommand(sSQL, conn);
             cmd.Parameters.Add(new SqlParameter("@importID", importID));
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dataSetImport);
-          
-
-            return dataSetImport;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+           
+            return dt;
         }
 
         private void frmPreviewImportPrint_Load(object sender, EventArgs e)
@@ -55,6 +55,7 @@ namespace SEFinalProject_Winform
             if (reportType == "Import")
             {
                 LoadReportImport(ID);
+
             } else
             {
                 LoadReportOrder(ID);
@@ -64,7 +65,9 @@ namespace SEFinalProject_Winform
         private void LoadReportImport(String importID)
         {
             reportViewer1.LocalReport.ReportPath = "ReportImport.rdlc";
-            var source = new ReportDataSource("DataSetImport", LoadData(importID));
+            var source = new ReportDataSource();
+            source.Name = "DataSetImport";
+            source.Value = LoadData(importID);
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(source);
             this.reportViewer1.RefreshReport();

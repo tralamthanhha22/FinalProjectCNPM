@@ -77,9 +77,10 @@ namespace SEFinalProject_Winform
             btnChooseImage.Enabled = true;
             this.WindowState = FormWindowState.Maximized;
 
-            tbImportID.Text =  createImportID();
+            //tbImportID.Text =  createImportID();
+            tbImportID.Text = "I0005";
             tbImportDate.Text = DateTime.Now.ToString();
-            LoadImportData("I0006");
+            LoadImportData("I0005");
 
 
 
