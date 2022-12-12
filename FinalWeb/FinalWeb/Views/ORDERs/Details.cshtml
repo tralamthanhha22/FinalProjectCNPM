@@ -25,8 +25,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DELIVERYNOTE_ID)
-            @ViewBag.delivery
+            @Html.DisplayFor(model => model.DELIVERYNOTE_ID)<br />
+            Phí giao hàng: @ViewBag.delivery đ
         </dd>
 
         <dt>
@@ -76,6 +76,18 @@
                 <dd>Mã chi tiết hóa đơn: @data.ODETAIL_ID</dd>
                 <dd>Mã hóa đơn: @data.ORDERID</dd>
                 <dd>Sản phẩm: @data.PRODUCTID </dd>
+
+                @foreach (var p in ViewBag.Product)
+                {
+                    if (@data.PRODUCTID.Equals(p.PRODUCTID))
+                    {
+                        <dd>@p.PRONAME</dd>
+                        <dd>@p.PROPRICE</dd>
+                        <dd><img src="~/Uploads/products/@p.PROIMG"></dd>
+                    }
+
+                }
+
                 <dd>Số lượng: @data.BUYQUANTITY</dd>
             </dl>
         }

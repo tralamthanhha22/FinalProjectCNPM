@@ -37,6 +37,7 @@ namespace FinalWeb.Controllers
             }
             ViewBag.Id = id;
             ViewBag.OrderDetail = db.ORDER_DETAIL.ToList();
+            ViewBag.Product=db.PRODUCT.ToList();
             ORDER oRDER = db.ORDER.Find(id);
             if(oRDER.PAYMENTMETHOD=="Chuyển khoản")
             {
