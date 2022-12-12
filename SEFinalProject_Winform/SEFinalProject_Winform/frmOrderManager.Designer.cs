@@ -42,6 +42,7 @@
             this.tbAgentPhone = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbOrderDate = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tbOrderID = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -59,7 +60,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.tbOrderDate = new System.Windows.Forms.MaskedTextBox();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -228,6 +229,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết đơn hàng";
             // 
+            // tbOrderDate
+            // 
+            this.tbOrderDate.Location = new System.Drawing.Point(523, 23);
+            this.tbOrderDate.Mask = "00/00/0000";
+            this.tbOrderDate.Name = "tbOrderDate";
+            this.tbOrderDate.Size = new System.Drawing.Size(113, 20);
+            this.tbOrderDate.TabIndex = 17;
+            this.tbOrderDate.ValidatingType = typeof(System.DateTime);
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -378,7 +388,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnUpdate.Location = new System.Drawing.Point(1200, 506);
+            this.btnUpdate.Location = new System.Drawing.Point(559, 505);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 30);
             this.btnUpdate.TabIndex = 11;
@@ -386,20 +396,24 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_clicked);
             // 
-            // tbOrderDate
+            // btnPrintOrder
             // 
-            this.tbOrderDate.Location = new System.Drawing.Point(523, 23);
-            this.tbOrderDate.Mask = "00/00/0000";
-            this.tbOrderDate.Name = "tbOrderDate";
-            this.tbOrderDate.Size = new System.Drawing.Size(113, 20);
-            this.tbOrderDate.TabIndex = 17;
-            this.tbOrderDate.ValidatingType = typeof(System.DateTime);
+            this.btnPrintOrder.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnPrintOrder.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPrintOrder.Location = new System.Drawing.Point(1205, 505);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(100, 30);
+            this.btnPrintOrder.TabIndex = 12;
+            this.btnPrintOrder.Text = "In hóa đơn";
+            this.btnPrintOrder.UseVisualStyleBackColor = false;
+            this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_clicked);
             // 
             // frmOrderManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 603);
+            this.Controls.Add(this.btnPrintOrder);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -454,5 +468,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.MaskedTextBox tbOrderDate;
+        private System.Windows.Forms.Button btnPrintOrder;
     }
 }

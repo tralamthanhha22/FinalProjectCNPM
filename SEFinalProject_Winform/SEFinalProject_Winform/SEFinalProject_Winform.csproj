@@ -181,6 +181,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportImport.rdlc" />
+    <EmbeddedResource Include="ReportOrder.rdlc" />
     <None Include="DataSetImport.xsc">
       <DependentUpon>DataSetImport.xsd</DependentUpon>
     </None>

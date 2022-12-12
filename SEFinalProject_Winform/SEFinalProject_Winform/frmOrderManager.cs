@@ -158,6 +158,7 @@ namespace SEFinalProject_Winform
         private void cbOrdID_choose(object sender, EventArgs e)
         {
             String OrdID_choosed = cbOrdID.Text.ToString();
+            tbOrderID.Text = OrdID_choosed;
             totalPrice = 0;
             LoadDataGridView(OrdID_choosed);
             LoadDataAgent(OrdID_choosed);
@@ -277,6 +278,12 @@ namespace SEFinalProject_Winform
                 throw new Exception("Error:" + ex.Message);
             }
             
+        }
+
+        private void btnPrintOrder_clicked(object sender, EventArgs e)
+        {
+            frmPreviewReportPrint frmOrderPrint = new frmPreviewReportPrint("Order", tbOrderID.Text);
+            frmOrderPrint.ShowDialog();
         }
     }
 }

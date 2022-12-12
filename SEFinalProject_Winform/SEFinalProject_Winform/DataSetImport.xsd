@@ -39,6 +39,49 @@ FROM            IMPORT CROSS JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SE_FinalProject_DBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [ORDER].ORDERID, [ORDER].AGENTID, [ORDER].DELIVERYNOTE_ID, [ORDER].ORDERDATE, [ORDER].ORDERSTATUS, [ORDER].PAYMENTSTATUS, [ORDER].PAYMENTMETHOD, ORDER_DETAIL.ODETAIL_ID, 
+                         ORDER_DETAIL.ORDERID AS Expr1, ORDER_DETAIL.PRODUCTID, ORDER_DETAIL.BUYQUANTITY, AGENT.AGENTID AS Expr2, AGENT.AGENTNAME, AGENT.AGENTADDRESS, AGENT.AGENTPHONE, 
+                         PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE, DELIVERY.DELIVERYNOTE_ID AS Expr4, DELIVERY.DELIVERYNAME, DELIVERY.DELIVERYFEE
+FROM            [ORDER] CROSS JOIN
+                         ORDER_DETAIL CROSS JOIN
+                         AGENT CROSS JOIN
+                         PRODUCT CROSS JOIN
+                         DELIVERY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ORDERID" DataSetColumn="ORDERID" />
+              <Mapping SourceColumn="AGENTID" DataSetColumn="AGENTID" />
+              <Mapping SourceColumn="DELIVERYNOTE_ID" DataSetColumn="DELIVERYNOTE_ID" />
+              <Mapping SourceColumn="ORDERDATE" DataSetColumn="ORDERDATE" />
+              <Mapping SourceColumn="ORDERSTATUS" DataSetColumn="ORDERSTATUS" />
+              <Mapping SourceColumn="PAYMENTSTATUS" DataSetColumn="PAYMENTSTATUS" />
+              <Mapping SourceColumn="PAYMENTMETHOD" DataSetColumn="PAYMENTMETHOD" />
+              <Mapping SourceColumn="ODETAIL_ID" DataSetColumn="ODETAIL_ID" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="PRODUCTID" DataSetColumn="PRODUCTID" />
+              <Mapping SourceColumn="BUYQUANTITY" DataSetColumn="BUYQUANTITY" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="AGENTNAME" DataSetColumn="AGENTNAME" />
+              <Mapping SourceColumn="AGENTADDRESS" DataSetColumn="AGENTADDRESS" />
+              <Mapping SourceColumn="AGENTPHONE" DataSetColumn="AGENTPHONE" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+              <Mapping SourceColumn="PRONAME" DataSetColumn="PRONAME" />
+              <Mapping SourceColumn="PROPRICE" DataSetColumn="PROPRICE" />
+              <Mapping SourceColumn="Expr4" DataSetColumn="Expr4" />
+              <Mapping SourceColumn="DELIVERYNAME" DataSetColumn="DELIVERYNAME" />
+              <Mapping SourceColumn="DELIVERYFEE" DataSetColumn="DELIVERYFEE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -119,6 +162,135 @@ FROM            IMPORT CROSS JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_UserTableName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ORDERID" msprop:Generator_ColumnPropNameInRow="ORDERID" msprop:Generator_ColumnPropNameInTable="ORDERIDColumn" msprop:Generator_ColumnVarNameInTable="columnORDERID" msprop:Generator_UserColumnName="ORDERID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGENTID" msprop:Generator_ColumnPropNameInRow="AGENTID" msprop:Generator_ColumnPropNameInTable="AGENTIDColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTID" msprop:Generator_UserColumnName="AGENTID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DELIVERYNOTE_ID" msprop:Generator_ColumnPropNameInRow="DELIVERYNOTE_ID" msprop:Generator_ColumnPropNameInTable="DELIVERYNOTE_IDColumn" msprop:Generator_ColumnVarNameInTable="columnDELIVERYNOTE_ID" msprop:Generator_UserColumnName="DELIVERYNOTE_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ORDERDATE" msprop:Generator_ColumnPropNameInRow="ORDERDATE" msprop:Generator_ColumnPropNameInTable="ORDERDATEColumn" msprop:Generator_ColumnVarNameInTable="columnORDERDATE" msprop:Generator_UserColumnName="ORDERDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ORDERSTATUS" msprop:Generator_ColumnPropNameInRow="ORDERSTATUS" msprop:Generator_ColumnPropNameInTable="ORDERSTATUSColumn" msprop:Generator_ColumnVarNameInTable="columnORDERSTATUS" msprop:Generator_UserColumnName="ORDERSTATUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAYMENTSTATUS" msprop:Generator_ColumnPropNameInRow="PAYMENTSTATUS" msprop:Generator_ColumnPropNameInTable="PAYMENTSTATUSColumn" msprop:Generator_ColumnVarNameInTable="columnPAYMENTSTATUS" msprop:Generator_UserColumnName="PAYMENTSTATUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAYMENTMETHOD" msprop:Generator_ColumnPropNameInRow="PAYMENTMETHOD" msprop:Generator_ColumnPropNameInTable="PAYMENTMETHODColumn" msprop:Generator_ColumnVarNameInTable="columnPAYMENTMETHOD" msprop:Generator_UserColumnName="PAYMENTMETHOD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ODETAIL_ID" msprop:Generator_ColumnPropNameInRow="ODETAIL_ID" msprop:Generator_ColumnPropNameInTable="ODETAIL_IDColumn" msprop:Generator_ColumnVarNameInTable="columnODETAIL_ID" msprop:Generator_UserColumnName="ODETAIL_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRODUCTID" msprop:Generator_ColumnPropNameInRow="PRODUCTID" msprop:Generator_ColumnPropNameInTable="PRODUCTIDColumn" msprop:Generator_ColumnVarNameInTable="columnPRODUCTID" msprop:Generator_UserColumnName="PRODUCTID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BUYQUANTITY" msprop:Generator_ColumnPropNameInRow="BUYQUANTITY" msprop:Generator_ColumnPropNameInTable="BUYQUANTITYColumn" msprop:Generator_ColumnVarNameInTable="columnBUYQUANTITY" msprop:Generator_UserColumnName="BUYQUANTITY" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_UserColumnName="Expr2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGENTNAME" msprop:Generator_ColumnPropNameInRow="AGENTNAME" msprop:Generator_ColumnPropNameInTable="AGENTNAMEColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTNAME" msprop:Generator_UserColumnName="AGENTNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGENTADDRESS" msprop:Generator_ColumnPropNameInRow="AGENTADDRESS" msprop:Generator_ColumnPropNameInTable="AGENTADDRESSColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTADDRESS" msprop:Generator_UserColumnName="AGENTADDRESS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGENTPHONE" msprop:Generator_ColumnPropNameInRow="AGENTPHONE" msprop:Generator_ColumnPropNameInTable="AGENTPHONEColumn" msprop:Generator_ColumnVarNameInTable="columnAGENTPHONE" msprop:Generator_UserColumnName="AGENTPHONE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_UserColumnName="Expr3">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRONAME" msprop:Generator_ColumnPropNameInRow="PRONAME" msprop:Generator_ColumnPropNameInTable="PRONAMEColumn" msprop:Generator_ColumnVarNameInTable="columnPRONAME" msprop:Generator_UserColumnName="PRONAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PROPRICE" msprop:Generator_ColumnPropNameInRow="PROPRICE" msprop:Generator_ColumnPropNameInTable="PROPRICEColumn" msprop:Generator_ColumnVarNameInTable="columnPROPRICE" msprop:Generator_UserColumnName="PROPRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expr4" msprop:Generator_ColumnPropNameInRow="Expr4" msprop:Generator_ColumnPropNameInTable="Expr4Column" msprop:Generator_ColumnVarNameInTable="columnExpr4" msprop:Generator_UserColumnName="Expr4">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DELIVERYNAME" msprop:Generator_ColumnPropNameInRow="DELIVERYNAME" msprop:Generator_ColumnPropNameInTable="DELIVERYNAMEColumn" msprop:Generator_ColumnVarNameInTable="columnDELIVERYNAME" msprop:Generator_UserColumnName="DELIVERYNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DELIVERYFEE" msprop:Generator_ColumnPropNameInRow="DELIVERYFEE" msprop:Generator_ColumnPropNameInTable="DELIVERYFEEColumn" msprop:Generator_ColumnVarNameInTable="columnDELIVERYFEE" msprop:Generator_UserColumnName="DELIVERYFEE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -127,6 +299,14 @@ FROM            IMPORT CROSS JOIN
       <xs:field xpath="mstns:IDETAIL_ID" />
       <xs:field xpath="mstns:Expr2" />
       <xs:field xpath="mstns:Expr3" />
+    </xs:unique>
+    <xs:unique name="DataTable2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:ORDERID" />
+      <xs:field xpath="mstns:ODETAIL_ID" />
+      <xs:field xpath="mstns:Expr2" />
+      <xs:field xpath="mstns:Expr3" />
+      <xs:field xpath="mstns:Expr4" />
     </xs:unique>
   </xs:element>
 </xs:schema>
