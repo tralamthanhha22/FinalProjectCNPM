@@ -26,7 +26,7 @@
         <Top>0.06944in</Top>
         <Left>0.28in</Left>
         <Height>0.50472in</Height>
-        <Width>5.43125in</Width>
+        <Width>6.43125in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -166,32 +166,125 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix4">
+      <Textbox Name="IMPORTID">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!IMPORTID.Value, "DataSetImport")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>IMPORTID</rd:DefaultName>
+        <Top>0.83111in</Top>
+        <Left>1.87375in</Left>
+        <Height>0.25in</Height>
+        <Width>3.15625in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="IMPORTDATE">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!IMPORTDATE.Value, "DataSetImport")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>IMPORTDATE</rd:DefaultName>
+        <Top>1.15056in</Top>
+        <Left>1.87375in</Left>
+        <Height>0.25in</Height>
+        <Width>3.15625in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="AGENTNAME">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!AGENTNAME.Value, "DataSetImport")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>AGENTNAME</rd:DefaultName>
+        <Top>1.47in</Top>
+        <Left>1.87375in</Left>
+        <Height>0.25in</Height>
+        <Width>3.15625in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.91458in</Width>
+              <Width>0.95416in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.95833in</Width>
+              <Width>1.11458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.08542in</Width>
+              <Width>2.20625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.79167in</Width>
+              <Width>1.13542in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.68125in</Width>
+              <Width>1.02083in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.36458in</Height>
+              <Height>0.59375in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox29">
+                    <Textbox Name="Textbox23">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -205,7 +298,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox29</rd:DefaultName>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -221,7 +314,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox31">
+                    <Textbox Name="Textbox18">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -235,7 +328,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox31</rd:DefaultName>
+                      <rd:DefaultName>Textbox18</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -251,7 +344,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox33">
+                    <Textbox Name="Textbox20">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -265,7 +358,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox33</rd:DefaultName>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -281,7 +374,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox40">
+                    <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -295,7 +388,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox40</rd:DefaultName>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -311,7 +404,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox42">
+                    <Textbox Name="Textbox27">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -325,7 +418,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <rd:DefaultName>Textbox27</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -342,7 +435,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.36458in</Height>
+              <Height>0.59375in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -517,108 +610,18 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet4Report</DataSetName>
-        <Top>2.67708in</Top>
+        <DataSetName>DataSetImport</DataSetName>
+        <Top>2.6875in</Top>
         <Left>0.28in</Left>
-        <Height>0.72917in</Height>
-        <Width>5.43125in</Width>
-        <ZIndex>5</ZIndex>
+        <Height>1.1875in</Height>
+        <Width>6.43125in</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="AGENTNAME">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!AGENTNAME.Value, "DataSet4Report")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>AGENTNAME</rd:DefaultName>
-        <Top>1.47in</Top>
-        <Left>1.85292in</Left>
-        <Height>0.25in</Height>
-        <Width>3.3125in</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="IMPORTID">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!IMPORTID.Value, "DataSet4Report")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>IMPORTID</rd:DefaultName>
-        <Top>0.83111in</Top>
-        <Left>1.85292in</Left>
-        <Height>0.25in</Height>
-        <Width>3.3125in</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="IMPORTDATE">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!IMPORTDATE.Value, "DataSet4Report")</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>IMPORTDATE</rd:DefaultName>
-        <Top>1.15056in</Top>
-        <Left>1.85292in</Left>
-        <Height>0.25in</Height>
-        <Width>3.3125in</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>5.58333in</Height>
     <Style>
@@ -627,7 +630,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>5.9675in</Width>
+  <Width>7.12375in</Width>
   <Page>
     <PageHeader>
       <Height>1.08208in</Height>
@@ -757,7 +760,7 @@
           <Top>0.06944in</Top>
           <Left>0.19458in</Left>
           <Height>0.25in</Height>
-          <Width>5.51667in</Width>
+          <Width>6.51667in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -780,19 +783,22 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>0.36458in</Top>
           <Left>0.19458in</Left>
           <Height>0.25in</Height>
-          <Width>1.29375in</Width>
+          <Width>2.8875in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -817,7 +823,7 @@
           <Top>0.36458in</Top>
           <Left>4.41958in</Left>
           <Height>0.25in</Height>
-          <Width>1.29167in</Width>
+          <Width>2.29167in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -855,7 +861,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet4Report">
+    <DataSet Name="DataSetImport">
       <Query>
         <DataSourceName>DataSetImport</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -897,14 +903,6 @@
           <DataField>AGENTNAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AGENTPHONE">
-          <DataField>AGENTPHONE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AGENTADDRESS">
-          <DataField>AGENTADDRESS</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Expr3">
           <DataField>Expr3</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -916,38 +914,6 @@
         <Field Name="PROPRICE">
           <DataField>PROPRICE</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="PROORIGIN">
-          <DataField>PROORIGIN</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PROQUANTITY">
-          <DataField>PROQUANTITY</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="PROTYPE">
-          <DataField>PROTYPE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PROBRAND">
-          <DataField>PROBRAND</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PRODESCRIPTION">
-          <DataField>PRODESCRIPTION</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="USEDATE">
-          <DataField>USEDATE</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="HASSOLD">
-          <DataField>HASSOLD</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="PROIMAGE">
-          <DataField>PROIMAGE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

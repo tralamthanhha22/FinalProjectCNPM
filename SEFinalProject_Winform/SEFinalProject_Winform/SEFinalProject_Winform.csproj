@@ -72,9 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetImport.cs">
-      <DependentUpon>DataSetImport.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSetImport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

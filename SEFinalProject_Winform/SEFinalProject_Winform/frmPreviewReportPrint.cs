@@ -38,7 +38,7 @@ namespace SEFinalProject_Winform
                         " ACCOUNTANT.ACCOUNTID AS Expr2, ACCOUNTANT.AGENTNAME, " +
                         "PRODUCT.PRODUCTID AS Expr3, PRODUCT.PRONAME, PRODUCT.PROPRICE " +
                         "FROM IMPORT CROSS JOIN IMPORT_DETAIL CROSS JOIN  ACCOUNTANT CROSS JOIN PRODUCT " +
-                        "where IMPORT.IMPORTID = @importID";
+                        "WHERE  IMPORT_DETAIL.IMPORTID = IMPORT.IMPORTID and IMPORT.ACCOUNTID = ACCOUNTANT.ACCOUNTID and IMPORT_DETAIL.PRODUCTID = PRODUCT.PRODUCTID and  IMPORT.IMPORTID = @importID";
             SqlCommand cmd = new SqlCommand(sSQL, conn);
             cmd.Parameters.Add(new SqlParameter("@importID", importID));
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -50,7 +50,7 @@ namespace SEFinalProject_Winform
 
         private void frmPreviewImportPrint_Load(object sender, EventArgs e)
         {
-
+            
             this.reportViewer1.RefreshReport();
             if (reportType == "Import")
             {
@@ -60,11 +60,14 @@ namespace SEFinalProject_Winform
             {
                 LoadReportOrder(ID);
             }
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
 
         private void LoadReportImport(String importID)
         {
-            reportViewer1.LocalReport.ReportPath = "ReportImport.rdlc";
+            reportViewer1.LocalReport.ReportEmbeddedResource = "SEFinalProject_Winform.ReportImport.rdlc";
             var source = new ReportDataSource();
             source.Name = "DataSetImport";
             source.Value = LoadData(importID);
