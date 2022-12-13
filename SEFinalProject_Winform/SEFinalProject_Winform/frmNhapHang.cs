@@ -270,7 +270,7 @@ namespace SEFinalProject_Winform
             LoadData();
         }
 
-        private String createImportID()
+        public String createImportID()
         {
             String importID = "";
             SqlConnection conn = new SqlConnection(strConn);
