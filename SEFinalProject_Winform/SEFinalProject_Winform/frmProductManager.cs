@@ -79,8 +79,8 @@ namespace SEFinalProject_Winform
             tbProType.Text = "";
             tbProUseDate.Text = "";
             rtbProDes.Text = "";
-            //picturePro.ImageLocation = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\icon_noimage.png";
-            picturePro.ImageLocation = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\icon_noimage.png";
+            picturePro.ImageLocation = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\icon_noimage.png";
+            //picturePro.ImageLocation = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\icon_noimage.png";
 
 
         }
@@ -102,8 +102,8 @@ namespace SEFinalProject_Winform
                 proImage = row[10].Value.ToString();
                 
 
-                //String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + proImage;
-                String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
+                String imagePath = "D:\\Homework\\SoftwareEngineering\\CloneSE\\FinalProjectCNPM\\Image\\" + proImage;
+                //String imagePath = "C:\\Users\\ACER\\source\\repos\\FinalProjectCNPM\\Image\\" + row[10].Value.ToString();
 
                 picturePro.ImageLocation = imagePath;
                 picturePro.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -182,28 +182,47 @@ namespace SEFinalProject_Winform
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                String sSQL = "DELETE FROM PRODUCT WHERE PRODUCTID = @ProID";
+                //check if product is in other table 
+                String sSQLCHECK = "SELECT * FROM ORDER_DETAIL WHERE PRODUCTID = @ProID";
                 SqlConnection conn = new SqlConnection(strConn);
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(sSQL, conn);
+                SqlCommand cmd = new SqlCommand(sSQLCHECK, conn);
                 cmd.Parameters.Add(new SqlParameter("@ProID", proID));
+
                 try
                 {
 
                     cmd.ExecuteNonQuery();
+                   
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    // Nếu sản phẩm đã từng được bán -> không được xóa
+                    if (dt.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Bạn không được xóa sản phẩm đã từng được mua bán");
+                    } 
+                    //Không thì xóa bình thường
+                    else
+                    {
+                        String sSQL = "DELETE FROM PRODUCT WHERE PRODUCTID = @ProID";
+                        cmd = new SqlCommand(sSQL, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Delete successfully!");
+                        LoadData();
+                    }
                     clearFormData();
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Error:" + ex.Message);
                 }
-                MessageBox.Show("Delete successfully!");
-                LoadData();
+                
             }
             else
             {
-                //Do somethings
+                //Chẳng làm gì cả
             }
         }
     }

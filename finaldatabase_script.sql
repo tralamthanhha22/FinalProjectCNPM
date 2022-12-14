@@ -319,6 +319,8 @@ alter Column PAYMENTSTATUS NVARCHAR(20);
 alter table "ORDER"
 alter Column PAYMENTMETHOD NVARCHAR(30);
 
+delete from "ORDER";
+
 insert into "ORDER" values ('O0001', 'AG001','D0000','2022-11-15',N'Đã nhận được hàng',N'Đã thanh toán', N'Chuyển khoản');
 insert into "ORDER" values ('O0002', 'AG002','D0001','2022-11-17',N'Đang giao hàng',N'Chưa thanh toán', N'Thanh toán khi nhận hàng');
 insert into "ORDER" values ('O0003', 'AG001','D0003','2022-11-18',N'Đang chuẩn bị hàng',N'Đã thanh toán', N'Chuyển khoản');
@@ -337,6 +339,8 @@ insert into ORDER_DETAIL values ('OD005','O0003', 'P0004',10);
 insert into ORDER_DETAIL values ('OD006','O0003', 'P0001',15);
 
 select * from ORDER_DETAIL;
+
+Select * from "ORDER"  where  ORDERSTATUS != N'Đang giao hàng';
 
 
 
@@ -363,3 +367,9 @@ UPDATE PRODUCT SET PROIMAGE = 'P009_vien_nhau_thai_cuu.png' where PRODUCTID = 'P
 UPDATE PRODUCT SET PROIMAGE = 'P010_sui_immune.jpg' where PRODUCTID = 'P0010';
 
 SELECT * FROM PRODUCT;
+
+select * from agent, "order" where agent.AGENTID = "order".AGENTID;
+
+Select ORDERDATE from "ORDER" where ORDERID;
+
+Select PRODUCTID as "Mã sản phẩm", PRONAME as "Tên sản phẩm", HASSOLD as "Đã bán" from PRODUCT order by  HASSOLD Desc; 
